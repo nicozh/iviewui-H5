@@ -1,1 +1,1 @@
-module.exports = ['badge','button','card','grid','icon','layout','list']
+module.exports = ['badge','card','button','grid','icon','layout','list','panel','tabBar']

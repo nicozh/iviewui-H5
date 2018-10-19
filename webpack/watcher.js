@@ -11,7 +11,7 @@ const watcher = chokidar.watch(resolve(__dirname, '../src/view/pages'), {
 watcher
   .on('addDir', (path) => {
     let routeName = path.split('\\').pop()
-    console.log(routeName)
+    // console.log(routeName)
     if (routeName !== 'pages' && routeName !== 'index') {
       routeList.push(`'${routeName}'`)
       fs.writeFileSync(resolve(__dirname, '../src/route-list.js'), `module.exports = [${routeList}]`)

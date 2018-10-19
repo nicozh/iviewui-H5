@@ -1,14 +1,14 @@
 <template>
-    <div class="i-class i-tab-bar-item">
-        <i-badge dot :count="dot ? 0 : count ">
+    <div class="i-tab-bar-item" @click="onClick">
+        <i-badge :count="dot ? 0 : count ">
             <div>
-                <i-icon wx:if="{{ icon || currentIcon }}" i-class="i-tab-bar-item-icon {{ current ? 'item-index--i-tab-bar-item-icon-current' : '' }}"
-                    color="{{ current ? currentColor : '' }}" type="{{ current ? currentIcon : icon }}" size="22"></i-icon>
-                <image wx:else class="i-tab-bar-item-img" src="{{ current ? currentImg : img }}"></image>
-                <div class="i-tab-bar-item-title {{ current ? 'i-tab-bar-item-title-current' : '' }}" wx:if="{{ current && currentColor }}"
-                    style="color: {{ currentColor }}">{{ title }}</div>
-                <div class="i-tab-bar-item-title {{ current ? 'i-tab-bar-item-title-current' : '' }}" wx:else>{{ title
-                    }}</div>
+                <i-icon v-if=" icon || currentIcon " :i-class="['i-tab-bar-item-icon' , current ? 'item-index--i-tab-bar-item-icon-current' : '' ]"
+                    :color=" current ? currentColor : '' " :type=" current ? currentIcon : icon " :size="22"></i-icon>
+                <img v-else class="i-tab-bar-item-img" :src="current ? currentImg : img ">
+                <div :class="['i-tab-bar-item-title',  current ? 'i-tab-bar-item-title-current' : '' ]" v-if="current && currentColor"
+                    :style="{color: currentColor}">{{ title }}</div>
+                <div :class="['i-tab-bar-item-title',  current ? 'i-tab-bar-item-title-current' : '']" v-else>{{
+                    title}}</div>
             </div>
         </i-badge>
     </div>
@@ -28,7 +28,7 @@
             currentImg: {
                 type: String,
             },
-            key: {
+            value: {
                 type: String,
             },
             title: {
@@ -46,9 +46,28 @@
         data() {
             return {
                 current: false,
-                currentColor: ''
+                currentColor: '',
             }
-        }
+        },
+        methods: {
+            changeCurrent(current) {
+                this.current = current
+            },
+            changeCurrentColor(currentColor) {
+                this.currentColor = currentColor
+            },
+            onClick(event) {
+                this.$parent.onChange(this.$parent.list.indexOf(this));
+                this.$emit('click', event);
+                // this.routerLink();
+            }
+        },
+        beforeCreate() {
+            this.$parent.list.push(this);
+        },
+        destroyed() {
+            this.$parent.list.splice(this.$parent.items.indexOf(this), 1);
+        },
     }
 </script>
 <style lang="less">

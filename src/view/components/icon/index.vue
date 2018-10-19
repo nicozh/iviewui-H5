@@ -1,5 +1,5 @@
 <template>
-    <i v-bind:style="{fontSize: size + 'px' }" :class="['i-icon' , type === '' ? '' : 'i-icon-' +  type ,  'custom' , color ? 'color:' + color : '' ]"></i>
+    <i v-bind:style="{fontSize: size + 'px',color:color}" :class="['i-icon' , type === '' ? '' : 'i-icon-' +  type ,  'custom' ,]"></i>
 </template>
 <script>
     export default {
@@ -16,6 +16,7 @@
             },
             color: {
                 type: String,
+                default: ''
             }
         }
     }

@@ -2,7 +2,7 @@
     <div>
         <i-grid>
             <div class="icon-item" v-for="(item,index) in list" :key="index">
-                <i-icon :type="item" :size="28" color="#5C6B77"></i-icon>
+                <i-icon :type="item" :size="28" color="#f759ab"></i-icon>
                 <div class="icon-item-name">{{ item }}</div>
             </div>
         </i-grid>
