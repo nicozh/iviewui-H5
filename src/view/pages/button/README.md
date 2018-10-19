@@ -31,3 +31,13 @@
 <i-button type="primary" disabled>禁用按钮</i-button>
 
 ```
+#### API
+| 属性     | 说明                                                                                | 类型    | 默认值 |
+|----------|-----------------------------------------------------------------------------------|---------|--------|
+| type     | 按钮类型，可选值为 default, primary, ghost, info, success, warning, error 或者不设置 | String  | -      |
+| inline   | 是否为行内元素，开启后宽度为自适应                                                   | Boolean | false  |
+| size     | 按钮大小，可选值为 large、small、default 或者不设置                                    | String  | -      |
+| shape    | 按钮形状，可选值为 circle 和 square                                                  | String  | square |
+| disabled | 设置按钮为禁用状态                                                                  | Boolean | fasle  |
+| loading  | 设置按钮为加载中状态                                                                | Boolean | false  |
+| long     | 开启后，按钮没有间距                                                                 | Boolean | false  |
