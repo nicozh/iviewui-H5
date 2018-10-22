@@ -1,5 +1,6 @@
 <template>
-    <button class="i-btn" :class="[ long ? 'i-btn-long' : '' ,'i-btn-' + size ,'i-btn-' + type , 'i-btn-' + shape , loading ? 'i-btn-loading' : '' ,disabled ? 'i-btn-disabled' : '', inline ? 'i-btn-inline' : '' ]">
+    <button class="i-btn" :class="[ long ? 'i-btn-long' : '' ,'i-btn-' + size ,'i-btn-' + type , 'i-btn-' + shape , loading ? 'i-btn-loading' : '' ,disabled ? 'i-btn-disabled' : '', inline ? 'i-btn-inline' : '' ]"
+        @click="onClick">
         <div class="i-btn-loading-inner" v-if="loading"></div>
         <slot></slot>
     </button>
@@ -29,6 +30,13 @@
                 default: 'default'
             }
         },
+        methods: {
+            onClick(event) {
+                if (!this.loading && !this.disabled) {
+                    this.$emit('click', event);
+                }
+            }
+        }
     }
 </script>
 <style lang="less">
@@ -58,6 +66,7 @@
     }
 
     .i-btn {
+        outline: 0;
         width: 100%;
         text-align: center;
         vertical-align: middle;
@@ -82,10 +91,12 @@
 
         margin: 10px;
 
-        &-hover {
+        &:hover {
             opacity: 0.9;
         }
-
+        &:focus {
+            outline: 0;
+        }
         &-long {
             border-radius: 0;
             margin: 0;
