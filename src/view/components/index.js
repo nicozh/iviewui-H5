@@ -10,6 +10,13 @@ import badge from './badge/badge'
 import panel from './panel/panel'
 import tabBar from './tab-bar/tab-bar.vue'
 import tabBarItem from './tab-bar/tab-bar-item.vue'
+import actionSheet from './action-sheet/action-sheet.vue'
+import progress from './progress/progress.vue'
+import drawer from './drawer/drawer.vue'
+import divider from './divider/divider.vue'
+import steps from './steps/steps.vue'
+import step from './steps/step.vue'
+import modal from './modal/modal.vue'
 
 const install = (Vue) => {
   Vue.component('i-card', card)
@@ -27,7 +34,14 @@ const install = (Vue) => {
   Vue.component('i-panel', panel)
   Vue.component('i-tab-bar', tabBar)
   Vue.component('i-tab-bar-item', tabBarItem)
-
+  Vue.component('i-action-sheet', actionSheet)
+  Vue.component('i-progress', progress)
+  Vue.component('i-drawer', drawer)
+  Vue.component('i-divider', divider)
+  Vue.component('i-steps', steps)
+  Vue.component('i-step', step)
+  Vue.component('i-modal',modal)
+ 
 }
 
 export default install

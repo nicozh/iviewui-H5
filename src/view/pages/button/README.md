@@ -41,3 +41,6 @@
 | disabled | 设置按钮为禁用状态                                                                  | Boolean | fasle  |
 | loading  | 设置按钮为加载中状态                                                                | Boolean | false  |
 | long     | 开启后，按钮没有间距                                                                 | Boolean | false  |
+
+#### Event
+

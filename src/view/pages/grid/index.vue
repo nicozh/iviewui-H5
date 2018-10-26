@@ -42,12 +42,12 @@
                 </i-grid-item>
             </i-row>
             <i-row>
-                <i-grid-item>
+                <!-- <i-grid-item>
                     <i-grid-icon>
                         <i-icon :size="24" type="flag" />
                         <i-grid-label>宫格</i-grid-label>
                     </i-grid-icon>
-                </i-grid-item>
+                </i-grid-item> -->
                 <i-grid-item>
                     <i-grid-icon>
                         <i-icon :size="24" type="interactive" />

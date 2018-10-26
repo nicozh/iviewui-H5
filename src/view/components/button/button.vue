@@ -1,5 +1,5 @@
 <template>
-    <button class="i-btn" :class="[ long ? 'i-btn-long' : '' ,'i-btn-' + size ,'i-btn-' + type , 'i-btn-' + shape , loading ? 'i-btn-loading' : '' ,disabled ? 'i-btn-disabled' : '', inline ? 'i-btn-inline' : '' ]"
+    <button class="i-btn" :class="[iClass, long ? 'i-btn-long' : '' ,'i-btn-' + size ,'i-btn-' + type , 'i-btn-' + shape , loading ? 'i-btn-loading' : '' ,disabled ? 'i-btn-disabled' : '', inline ? 'i-btn-inline' : '' ]"
         @click="onClick">
         <div class="i-btn-loading-inner" v-if="loading"></div>
         <slot></slot>
@@ -8,6 +8,7 @@
 <script>
     export default {
         props: {
+            iClass: String,
             text: String,
             inline: Boolean,
             long: Boolean,
@@ -89,14 +90,16 @@
         .btn-color(@btn-default-bg);
         color: @text-color  !important;
 
-        margin: 10px;
+        margin: 10px 0;
 
         &:hover {
             opacity: 0.9;
         }
+
         &:focus {
             outline: 0;
         }
+
         &-long {
             border-radius: 0;
             margin: 0;

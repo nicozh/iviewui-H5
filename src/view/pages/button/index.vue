@@ -1,11 +1,11 @@
 <template>
-    <div>
+    <div style="margin:10px">
         <p>一般用法</p>
         <i-button :inline="true">行内按钮</i-button>
         <i-button :inline="true" type="primary">行内按钮</i-button>
         <i-button :inline="true" type="success">行内按钮</i-button>
         <i-button>默认按钮</i-button>
-        <i-button type="error" :long="true">联通两边按钮</i-button>
+        <i-button type="error" long>联通两边按钮</i-button>
         <i-button type="primary">Primary</i-button>
         <i-button type="ghost">Ghost</i-button>
         <i-button type="info">Info</i-button>

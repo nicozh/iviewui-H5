@@ -1,10 +1,13 @@
 <template>
-    <div class="i-grid-item" :style="{width: width}">
+    <div :class="['i-grid-item',iClass]" :style="{width: width}">
         <slot></slot>
     </div>
 </template>
 <script>
     export default {
+        props: {
+            iClass: String
+        },
         data() {
             return {
                 width: '33.33%'

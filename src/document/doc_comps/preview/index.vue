@@ -14,7 +14,7 @@
 
 <style lang="less">
   .comp-preview {
-    margin: 120px 20px 0;
+    margin: 30px 20px 0;
     background-image: url('../../static/img/phone.png');
     background-repeat: no-repeat;
     background-size: 100%;
@@ -27,7 +27,7 @@
       width: 100%;
       height: 580px;
       // background-color: #fff;
-      background-color: #F1F4F8
+      background-color: #F1F4F8;
     }
   }
 </style>

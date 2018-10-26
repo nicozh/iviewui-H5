@@ -1,11 +1,35 @@
 <template>
-    <div class="i-grid">
+    <div :class="['i-grid',iClass]">
         <slot></slot>
     </div>
 </template>
 <script>
     export default {
-
+        props: {
+            iClass: String
+        },
+        data() {
+            return {
+                width: ''
+            }
+        },
+        watch: {
+            width: function () {
+                this.setGridItemWidth()
+            }
+        },
+        methods: {
+            setGridItemWidth() {
+                const nodes = this.$children
+                this.width = 100 / nodes.length;
+                nodes.forEach(item => {
+                    item.width = this.width + '%'
+                });
+            }
+        },
+        mounted() {
+            this.setGridItemWidth();
+        }
     }
 </script>
 <style lang="less">
