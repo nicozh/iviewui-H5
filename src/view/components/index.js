@@ -17,6 +17,7 @@ import divider from './divider/divider.vue'
 import steps from './steps/steps.vue'
 import step from './steps/step.vue'
 import modal from './modal/modal.vue'
+import page from './page/page.vue'
 
 const install = (Vue) => {
   Vue.component('i-card', card)
@@ -41,7 +42,8 @@ const install = (Vue) => {
   Vue.component('i-steps', steps)
   Vue.component('i-step', step)
   Vue.component('i-modal',modal)
- 
+  Vue.component('i-page',page)
+
 }
 
 export default install
