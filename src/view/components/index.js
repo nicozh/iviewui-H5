@@ -18,6 +18,10 @@ import steps from './steps/steps.vue'
 import step from './steps/step.vue'
 import modal from './modal/modal.vue'
 import page from './page/page.vue'
+import Switch from './switch/switch.vue'
+import tag from './tag/tag.vue'
+import tabs from './tabs/tabs.vue'
+import tab from './tabs/tab.vue'
 
 const install = (Vue) => {
   Vue.component('i-card', card)
@@ -43,6 +47,10 @@ const install = (Vue) => {
   Vue.component('i-step', step)
   Vue.component('i-modal',modal)
   Vue.component('i-page',page)
+  Vue.component('i-switch',Switch)
+  Vue.component('i-tag', tag)
+  Vue.component('i-tabs',tabs)
+  Vue.component('i-tab',tab)
 
 }
 
