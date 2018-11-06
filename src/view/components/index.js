@@ -22,6 +22,7 @@ import Switch from './switch/switch.vue'
 import tag from './tag/tag.vue'
 import tabs from './tabs/tabs.vue'
 import tab from './tabs/tab.vue'
+import swipeout from './swipeout/swipeout.vue'
 
 const install = (Vue) => {
   Vue.component('i-card', card)
@@ -45,12 +46,13 @@ const install = (Vue) => {
   Vue.component('i-divider', divider)
   Vue.component('i-steps', steps)
   Vue.component('i-step', step)
-  Vue.component('i-modal',modal)
-  Vue.component('i-page',page)
-  Vue.component('i-switch',Switch)
+  Vue.component('i-modal', modal)
+  Vue.component('i-page', page)
+  Vue.component('i-switch', Switch)
   Vue.component('i-tag', tag)
-  Vue.component('i-tabs',tabs)
-  Vue.component('i-tab',tab)
+  Vue.component('i-tabs', tabs)
+  Vue.component('i-tab', tab)
+  Vue.component('i-swipeout', swipeout)
 
 }
 
