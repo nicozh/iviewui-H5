@@ -23,6 +23,8 @@ import tag from './tag/tag.vue'
 import tabs from './tabs/tabs.vue'
 import tab from './tabs/tab.vue'
 import swipeout from './swipeout/swipeout.vue'
+import collapse from './collapse/collapse.vue'
+import collapseItem from './collapse/collapse-item.vue'
 
 const install = (Vue) => {
   Vue.component('i-card', card)
@@ -53,6 +55,8 @@ const install = (Vue) => {
   Vue.component('i-tabs', tabs)
   Vue.component('i-tab', tab)
   Vue.component('i-swipeout', swipeout)
+  Vue.component('i-collapse', collapse)
+  Vue.component('i-collapse-item', collapseItem)  
 
 }
 
