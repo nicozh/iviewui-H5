@@ -28,6 +28,7 @@ import collapseItem from './collapse/collapse-item.vue'
 import radioGroup from './radio/radio-group.vue'
 import radio from './radio/radio.vue'
 import rate from './rate/rate.vue'
+import toast from './toast'
 
 const install = (Vue) => {
   Vue.component('i-card', card)
@@ -63,7 +64,8 @@ const install = (Vue) => {
   Vue.component('i-radio-group', radioGroup)
   Vue.component('i-radio', radio)
   Vue.component('i-rate', rate)
-
+  Vue.use(toast)
+  
 }
 
 export default install
