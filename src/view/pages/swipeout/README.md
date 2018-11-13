@@ -1,9 +1,14 @@
 # Swipeout 滑动菜单
+
 #### 概述
+
 与 iOS 原生的滑动操作交互类似，可通过滑动显示操作菜单。
+
 #### 使用指南
+
 #### 示例
-```
+
+```html
 <template>
     <div class="i-swipeout-demo">
         <div class="i-swipeout-demo-title">基础用法</div>

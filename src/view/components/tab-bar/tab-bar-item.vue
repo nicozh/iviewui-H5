@@ -2,7 +2,7 @@
     <div class="i-tab-bar-item" @click="onClick">
         <i-badge :count="dot ? 0 : count ">
             <div>
-                <i-icon v-if=" icon || currentIcon " :i-class="['i-tab-bar-item-icon' , current ? 'item-index--i-tab-bar-item-icon-current' : '' ]"
+                <i-icon v-if=" icon || currentIcon " :class="['i-tab-bar-item-icon' , current ? 'i-tab-bar-item-icon-current' : '' ]"
                     :color=" current ? currentColor : '' " :type=" current ? currentIcon : icon " :size="22"></i-icon>
                 <img v-else class="i-tab-bar-item-img" :src="current ? currentImg : img ">
                 <div :class="['i-tab-bar-item-title',  current ? 'i-tab-bar-item-title-current' : '' ]" v-if="current && currentColor"
@@ -66,7 +66,7 @@
             this.$parent.list.push(this);
         },
         destroyed() {
-            this.$parent.list.splice(this.$parent.items.indexOf(this), 1);
+            // this.$parent.list.splice(this.$parent.items.indexOf(this), 1);
         },
     }
 </script>
