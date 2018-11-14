@@ -1,14 +1,5 @@
 <template>
     <div>
-        <!-- <i-cell-group>
-            <i-cell title="只显示箭头" is-link></i-cell>
-            <i-cell title="跳转到首页" is-link url="/pages/dashboard/index"></i-cell>
-            <i-cell title="只有 footer 点击有效" is-link url="/pages/dashboard/index" only-tap-footer></i-cell>
-            <i-cell title="开关" value="详细内容" label="这里是描述">
-                <switch slot="footer" checked />
-            </i-cell>
-        </i-cell-group> -->
-
         <i-panel class="cell-panel-demo">
             <i-cell title="单行列表"></i-cell>
         </i-panel>
@@ -40,17 +31,17 @@
                 <i-cell title="只显示箭头" is-link></i-cell>
                 <i-cell title="跳转到首页" is-link url="/pages/index/index"></i-cell>
                 <i-cell title="只有 footer 点击有效" is-link url="/pages/index/index" only-tap-footer></i-cell>
-                <!-- <block v-if="switch1">
+                <div v-if="switch1">
                     <i-cell title="单行列表" label="附加描述" value="详细信息"></i-cell>
-                    <i-cell title="表单">
+                    <!-- <i-cell title="表单">
                         <input slot="footer" type="digit" placeholder="带小数点的数字键盘" />
-                    </i-cell>
-                </block> -->
+                    </i-cell> -->
+                </div>
                 <i-cell title="开关">
-                    <!-- <i-switch value="{{ switch1 }}" bind:change="onChange" slot="footer">
+                    <i-switch :value="switch1" @change="onChange" slot="footer">
                         <i-icon type="right" slot="open"></i-icon>
                         <i-icon type="close" slot="close"></i-icon>
-                    </i-switch> -->
+                    </i-switch>
                 </i-cell>
             </i-cell-group>
         </i-panel>
@@ -60,6 +51,21 @@
         </i-panel>
     </div>
 </template>
+<script>
+export default {
+  data() {
+    return {
+      switch1: true
+    };
+  },
+  methods: {
+    onChange(value) {
+      this.switch1 = value;
+    }
+  }
+};
+</script>
+
 <style lang="less">
 .cell-panel-demo {
   display: block;
