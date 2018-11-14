@@ -58,7 +58,7 @@
         },
         methods: {
             navigateTo() {
-                console.log('点击跳转')
+                // console.log('点击跳转')
             },
         }
     }
