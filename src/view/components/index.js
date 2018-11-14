@@ -29,6 +29,7 @@ import radioGroup from './radio/radio-group.vue'
 import radio from './radio/radio.vue'
 import rate from './rate/rate.vue'
 import toast from './toast'
+import spin from './spin/spin.vue'
 
 const install = (Vue) => {
   Vue.component('i-card', card)
@@ -65,7 +66,8 @@ const install = (Vue) => {
   Vue.component('i-radio', radio)
   Vue.component('i-rate', rate)
   Vue.use(toast)
-  
+  Vue.component('i-spin', spin)
+
 }
 
 export default install
