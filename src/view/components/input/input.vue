@@ -1,29 +1,24 @@
 <template>
-    <div>
-        <div :class="[iClass, 'i-cell', 'i-input', error ? 'i-input-error' : '', mode === 'wrapped' ? 'i-input-wrapped' : '']">
-            <div v-if="title" class="i-cell-hd i-input-title">{{ title }}</div>
-            <textarea v-if="type === 'textarea'" auto-height :disabled="disabled" :autofocus="autofocus" :value="value"
-                :placeholder="placeholder" :maxlength="maxlength" :class="['i-input-input', 'i-cell-bd', right ? 'i-input-input-right' : '']"
-                placeholder-class="i-input-placeholder" @input="handleInputChange" @focus="handleInputFocus" @blur="handleInputBlur"></textarea>
-            <input v-else :type="type" :disabled="disabled" :autofocus="autofocus" :value="value" :placeholder="placeholder"
-                :maxlength="maxlength" :class="['i-input-input', 'i-cell-bd', right ? 'i-input-input-right' : '']"
-                placeholder-class="i-input-placeholder" @input="handleInputChange" @focus="handleInputFocus" @blur="handleInputBlur">
-        </div>
+  <div>
+    <div :class="[iClass, 'i-cell', 'i-input', error ? 'i-input-error' : '', mode === 'wrapped' ? 'i-input-wrapped' : '']">
+      <div v-if="title" class="i-cell-hd i-input-title">{{ title }}</div>
+      <textarea ref="input" v-if="type === 'textarea'" auto-height :readonly=readonly :disabled="disabled" :autofocus="autofocus" :value="value" :placeholder="placeholder" :maxlength="maxlength" :class="['i-input-input', 'i-cell-bd', right ? 'i-input-input-right' : '']" placeholder-class="i-input-placeholder" @input="handleInputChange" @focus="handleInputFocus" @blur="handleInputBlur"></textarea>
+      <input ref="input" v-else :type="type" :readonly=readonly :disabled="disabled" :autofocus="autofocus" :value="value" :placeholder="placeholder" :maxlength="maxlength" :class="['i-input-input', 'i-cell-bd', right ? 'i-input-input-right' : '']" placeholder-class="i-input-placeholder" @input="handleInputChange" @focus="handleInputFocus" @blur="handleInputBlur">
     </div>
+  </div>
 </template>
 <script>
 export default {
   props: {
     value: [String, Number],
     iClass: String,
-    title: {
-      type: String
-    },
+    title: String,
     // text || textarea || password || number
     type: {
       type: String,
       default: "text"
     },
+    readonly: Boolean,
     disabled: {
       type: Boolean,
       default: false
@@ -50,7 +45,8 @@ export default {
     },
     maxlength: {
       type: Number
-    }
+    },
+    autosize: [Boolean, Object]
   },
   data() {
     return {};
@@ -70,27 +66,14 @@ export default {
       return x !== null && (type === "object" || type === "function");
     },
     handleInputChange(event) {
-      // const {
-      //     detail = {}
-      // } = event;
-      // const {
-      //     value = ''
-      // } = detail;
-      // this.setData({
-      //     value
-      // });
-
-      // this.triggerEvent('change', event);
-      this.$emit("change", this.value);
+      this.$emit("input", event.target.value);
     },
 
     handleInputFocus(event) {
-      // this.triggerEvent('focus', event);
       this.$emit("focus", event);
     },
 
     handleInputBlur(event) {
-      // this.triggerEvent('blur', event);
       this.$emit("blur", event);
     },
     adjustSize() {
