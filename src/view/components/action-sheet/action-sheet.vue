@@ -1,7 +1,6 @@
 <template>
     <div>
-        <!-- bindtap="handleClickMask" -->
-        <div :class="['i-as-mask', iClassMask, visible ? 'i-as-mask-show' : '' ]"></div> 
+        <div :class="['i-as-mask', iClassMask, visible ? 'i-as-mask-show' : '' ]" @click="handleClickMask"></div> 
         <div :class="[iClass, 'i-as' , visible ? 'i-as-show' : '' ]">
             <div :class="['i-as-header', iClassHeader]">
                 <slot name="header"></slot>
