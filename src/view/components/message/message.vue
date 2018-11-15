@@ -1,0 +1,63 @@
+<template>
+    <div :class="['i-message', `i-message-${type}`, visible ? 'i-message-show' : '' ]">
+        {{ content }}
+    </div>
+</template>
+<script>
+export default {
+  props: {  
+    visible: {
+      type: Boolean,
+      default: false
+    },
+    content: String,
+    duration: Number,
+    type: {
+      type: String,
+      default: "default" // default || success || warning || error
+    }
+  }
+};
+</script>
+<style lang="less">
+@import "../styles/_base.less";
+@import "../styles/_mixins.less";
+
+.i-message {
+  display: block;
+  width: 100%;
+  min-height: 32px;
+  line-height: 2.3;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: @primary-color;
+  color: #fff;
+  text-align: center;
+  font-size: @size-font-base;
+  z-index: @zindex-message;
+  opacity: 0;
+  -webkit-transform: translateZ(0) translateY(-100%);
+  transition: all 0.4s ease-in-out;
+
+  &-show {
+    -webkit-transform: translateZ(0) translateY(0);
+    opacity: 1;
+  }
+
+  &-default {
+    background: @primary-color;
+  }
+
+  &-success {
+    background: @success-color;
+  }
+  &-warning {
+    background: @warning-color;
+  }
+  &-error {
+    background: @error-color;
+  }
+}
+</style>

@@ -1,14 +1,3 @@
-# Message 全局提醒
-
-#### 概述
-
-轻量级的信息反馈组件，在顶部居中显示，并自动消失。有多种不同的提示状态可选择。
-
-#### 使用指南
-
-#### 示例
-
-```html
 <template>
     <div>
         <i-button type="ghost" @click="handleDefault">默认提醒</i-button>
@@ -53,13 +42,3 @@ export default {
   }
 };
 </script>
-```
-#### API
-
-##### $Message options
-
-| 属性     | 说明                                              | 类型   | 默认值  |
-|----------|-------------------------------------------------|--------|---------|
-| content  | 内容                                              | String | -       |
-| type     | 内置的类型，可选值为 default、success、warning、error | String | default |
-| duration | 持续时间，单位秒                                   | Number | 2       |

@@ -31,6 +31,7 @@ import rate from './rate/rate.vue'
 import toast from './toast'
 import spin from './spin/spin.vue'
 import input from './input/input.vue'
+import message from './message'
 
 const install = (Vue) => {
   Vue.component('i-card', card)
@@ -69,6 +70,7 @@ const install = (Vue) => {
   Vue.use(toast)
   Vue.component('i-spin', spin)
   Vue.component('i-input', input)
+  Vue.use(message)
 
 }
 
