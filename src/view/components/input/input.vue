@@ -2,8 +2,8 @@
   <div>
     <div :class="[iClass, 'i-cell', 'i-input', error ? 'i-input-error' : '', mode === 'wrapped' ? 'i-input-wrapped' : '']">
       <div v-if="title" class="i-cell-hd i-input-title">{{ title }}</div>
-      <textarea ref="input" v-if="type === 'textarea'" auto-height :readonly=readonly :disabled="disabled" :autofocus="autofocus" :value="value" :placeholder="placeholder" :maxlength="maxlength" :class="['i-input-input', 'i-cell-bd', right ? 'i-input-input-right' : '']" placeholder-class="i-input-placeholder" @input="handleInputChange" @focus="handleInputFocus" @blur="handleInputBlur"></textarea>
-      <input ref="input" v-else :type="type" :readonly=readonly :disabled="disabled" :autofocus="autofocus" :value="value" :placeholder="placeholder" :maxlength="maxlength" :class="['i-input-input', 'i-cell-bd', right ? 'i-input-input-right' : '']" placeholder-class="i-input-placeholder" @input="handleInputChange" @focus="handleInputFocus" @blur="handleInputBlur">
+      <textarea ref="input" v-if="type === 'textarea'" auto-height :readonly=readonly :disabled="disabled" :autofocus="autofocus" :value="value" :placeholder="placeholder" :maxlength="maxlength" :class="['i-input-input', 'i-cell-bd', error ? 'i-input-error' : '', right ? 'i-input-input-right' : '']" placeholder-class="i-input-placeholder" @input="handleInputChange" @focus="handleInputFocus" @blur="handleInputBlur"></textarea>
+      <input ref="input" v-else :type="type" :readonly=readonly :disabled="disabled" :autofocus="autofocus" :value="value" :placeholder="placeholder" :maxlength="maxlength" :class="['i-input-input', 'i-cell-bd', error ? 'i-input-error' : '', right ? 'i-input-input-right' : '']" placeholder-class="i-input-placeholder" @input="handleInputChange" @focus="handleInputFocus" @blur="handleInputBlur">
     </div>
   </div>
 </template>
@@ -67,6 +67,7 @@ export default {
     },
     handleInputChange(event) {
       this.$emit("input", event.target.value);
+      this.$emit('change', event.target.value)
     },
 
     handleInputFocus(event) {
