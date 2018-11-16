@@ -32,6 +32,7 @@ import toast from './toast'
 import spin from './spin/spin.vue'
 import input from './input/input.vue'
 import message from './message'
+import avatar from './avatar/avatar.vue'
 
 const install = (Vue) => {
   Vue.component('i-card', card)
@@ -71,6 +72,7 @@ const install = (Vue) => {
   Vue.component('i-spin', spin)
   Vue.component('i-input', input)
   Vue.use(message)
+  Vue.component('i-avatar', avatar)
 
 }
 
