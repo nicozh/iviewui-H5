@@ -1,15 +1,35 @@
 # Panel 面板
+
 #### 概述
+
 基础布局配件
+
 #### 使用指南
-#### 实例
-```
-<i-panel title="标题">
-    <view style="padding: 15px;">PANEL 内容区域</view>
-</i-panel>
+
+#### 示例
+
+``` html
+<template>
+    <div>
+        <i-panel title="标题" hide-top>
+            <div style="padding: 15px;">头部距离为 0 的 Panel</div>
+        </i-panel>
+
+        <i-panel title="标题">
+            <div style="padding: 15px;">带有标题的 Panel</div>
+        </i-panel>
+
+        <i-panel title="标题" :hide-border="true">
+            <div style="padding: 15px;">无边框的 Panel</div>
+        </i-panel>
+    </div>
+</template>
 
 ```
+
 #### API
+
+##### Panel props
 
 | 属性        | 说明             | 类型    | 默认值 |
 |-------------|----------------|---------|--------|
