@@ -33,7 +33,7 @@ import spin from './spin/spin.vue'
 import input from './input/input.vue'
 import message from './message'
 import avatar from './avatar/avatar.vue'
-import sticky from './sticky/sticky.vue'
+import inputNumber from './input-number/input-number.vue'
 
 const install = (Vue) => {
   Vue.component('i-card', card)
