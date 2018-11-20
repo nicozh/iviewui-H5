@@ -34,6 +34,7 @@ import input from './input/input.vue'
 import message from './message'
 import avatar from './avatar/avatar.vue'
 import inputNumber from './input-number/input-number.vue'
+import loadMore from './load-more/load-more.vue'
 
 const install = (Vue) => {
   Vue.component('i-card', card)
@@ -75,6 +76,7 @@ const install = (Vue) => {
   Vue.use(message)
   Vue.component('i-avatar', avatar)
   Vue.component('i-input-number', inputNumber)
+  Vue.component('i-load-more', loadMore)
 
 }
 
