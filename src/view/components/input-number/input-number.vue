@@ -1,12 +1,13 @@
 <template>
-    <div :class="['i-input-number', `i-input-number-size-${size}`]">
-        <div :class="['i-input-number-selector', 'i-input-number-minus', value <= +min ? 'i-input-number-disabled' : '' ]" :data-disabled="value <= min" @click="handleMinus">-</div>
-        <input :class="['i-input-number-text', min >= max ? 'i-input-number-disabled' : '' ]" type="number" :value="value" :disabled="min >= max" @input="$emit('input', $event.target.value)" @blur="handleBlur" />
-        <div :class="['i-input-number-selector', 'i-input-number-plus', value >= +max ? 'i-input-number-disabled' : '' ]" :data-disabled="value >= max" @click="handlePlus">+</div>
-    </div>
+  <div :class="['i-input-number', `i-input-number-size-${size}`]">
+    <div :class="['i-input-number-selector', 'i-input-number-minus', value <= +min ? 'i-input-number-disabled' : '' ]" :data-disabled="value <= min" @click="handleMinus">-</div>
+    <input :class="['i-input-number-text', min >= max ? 'i-input-number-disabled' : '' ]" type="number" :value="value" :disabled="min >= max" @input="$emit('input', $event.target.value)" @blur="handleBlur" />
+    <div :class="['i-input-number-selector', 'i-input-number-plus', value >= +max ? 'i-input-number-disabled' : '' ]" :data-disabled="value >= max" @click="handlePlus">+</div>
+  </div>
 </template>
 <script>
 export default {
+  name: "i-input-number",
   props: {
     // small || default || large
     size: {
@@ -167,7 +168,7 @@ export default {
     line-height: 30px;
     float: left;
     padding: 0;
-    outline: none
+    outline: none;
   }
 
   &-disabled {

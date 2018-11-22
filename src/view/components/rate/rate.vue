@@ -1,15 +1,16 @@
 <template>
-    <div :class="[iClass, 'i-rate']" @touchmove="handleTouchMove">
-        <div v-for="(item,index) in count" :key="item" :class="['i-rate-star', getCurrent(value,index)]" @click="handleClick(index)">
-            <i-icon type="collection_fill" :size="size" :data-index="index"></i-icon>
-        </div>
-        <div class="i-rate-text" v-if="value !== 0">
-            <slot></slot>
-        </div>
+  <div :class="[iClass, 'i-rate']" @touchmove="handleTouchMove">
+    <div v-for="(item,index) in count" :key="item" :class="['i-rate-star', getCurrent(value,index)]" @click="handleClick(index)">
+      <i-icon type="collection_fill" :size="size" :data-index="index"></i-icon>
     </div>
+    <div class="i-rate-text" v-if="value !== 0">
+      <slot></slot>
+    </div>
+  </div>
 </template>
 <script>
 export default {
+  name: "i-rate",
   props: {
     iClass: String,
     count: {
@@ -28,7 +29,7 @@ export default {
       type: Number,
       default: 20
     }
-   },
+  },
   data() {
     return {
       touchesStart: {

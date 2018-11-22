@@ -11,6 +11,7 @@
 </template>
 <script>
 export default {
+  name: "i-collapse-item",
   props: {
     iClass: String,
     iClassTitle: String,

@@ -9,6 +9,7 @@
 </template>
 <script>
 export default {
+  name: "i-input",
   props: {
     value: [String, Number],
     iClass: String,
@@ -67,7 +68,7 @@ export default {
     },
     handleInputChange(event) {
       this.$emit("input", event.target.value);
-      this.$emit('change', event.target.value)
+      this.$emit("change", event.target.value);
     },
 
     handleInputFocus(event) {

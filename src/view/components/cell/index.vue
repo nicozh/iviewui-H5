@@ -73,7 +73,8 @@ export default {
   },
   created() {
     this.findParent("i-cell-group");
-    this.parent ? this.parent._updateIsLastCell() : "";
+    this.parent ? this.parent.list.push(this) : "";
+    // this.parent._updateIsLastCell() : "";
   }
 };
 </script>

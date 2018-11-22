@@ -1,193 +1,193 @@
 <template>
-    <button class="i-btn" :class="[iClass, long ? 'i-btn-long' : '' ,'i-btn-' + size ,'i-btn-' + type , 'i-btn-' + shape , loading ? 'i-btn-loading' : '' ,disabled ? 'i-btn-disabled' : '', inline ? 'i-btn-inline' : '' ]"
-        @click="onClick">
+    <button class="i-btn" :class="[iClass, long ? 'i-btn-long' : '' ,'i-btn-' + size ,'i-btn-' + type , 'i-btn-' + shape , loading ? 'i-btn-loading' : '' ,disabled ? 'i-btn-disabled' : '', inline ? 'i-btn-inline' : '' ]" @click="onClick">
         <div class="i-btn-loading-inner" v-if="loading"></div>
         <slot></slot>
     </button>
 </template>
 <script>
-    export default {
-        props: {
-            iClass: String,
-            text: String,
-            inline: Boolean,
-            long: Boolean,
-            loading: Boolean,
-            disabled: Boolean,
-            loading: {
-                type: Boolean,
-                default: false
-            },
-            shape: {
-                type: String,
-                default: 'square'
-            },
-            type: {
-                type: String,
-                default: 'default'
-            },
-            size: {
-                type: String,
-                default: 'default'
-            }
-        },
-        methods: {
-            onClick(event) {
-                if (!this.loading && !this.disabled) {
-                    this.$emit('click', event);
-                }
-            }
-        }
+export default {
+  name: 'i-button',
+  props: {
+    iClass: String,
+    text: String,
+    inline: Boolean,
+    long: Boolean,
+    loading: Boolean,
+    disabled: Boolean,
+    loading: {
+      type: Boolean,
+      default: false
+    },
+    shape: {
+      type: String,
+      default: "square"
+    },
+    type: {
+      type: String,
+      default: "default"
+    },
+    size: {
+      type: String,
+      default: "default"
     }
+  },
+  methods: {
+    onClick(event) {
+      if (!this.loading && !this.disabled) {
+        this.$emit("click", event);
+      }
+    }
+  }
+};
 </script>
 <style lang="less">
-    @import "../styles/_base.less";
-    @import "../styles/_mixins.less";
+@import "../styles/_base.less";
+@import "../styles/_mixins.less";
 
-    .button-size(@padding;
+.button-size(@padding;
     @font-size;
 
     ) {
-        padding: @padding;
-        font-size: @font-size;
-    }
+  padding: @padding;
+  font-size: @font-size;
+}
 
-    .btn-color(@color) {
-        color: #fff !important;
-        background: @color  !important;
-    }
+.btn-color(@color) {
+  color: #fff !important;
+  background: @color !important;
+}
 
-    .btn-primary() {
-        .btn-color(@primary-color);
-    }
+.btn-primary() {
+  .btn-color(@primary-color);
+}
 
-    .btn-ghost() {
-        .btn-color(#fff);
-        color: @text-color  !important;
-    }
+.btn-ghost() {
+  .btn-color(#fff);
+  color: @text-color !important;
+}
 
-    .i-btn {
-        outline: 0;
-        width: 100%;
-        text-align: center;
-        vertical-align: middle;
-        touch-action: manipulation;
-        cursor: pointer;
-        background-image: none;
-        white-space: nowrap;
-        user-select: none;
-        font-size: @size-font-base;
-        border-radius: 2px;
-        border: 0 !important;
-        position: relative;
-        text-decoration: none;
+.i-btn {
+  outline: 0;
+  width: 100%;
+  text-align: center;
+  vertical-align: middle;
+  touch-action: manipulation;
+  cursor: pointer;
+  background-image: none;
+  white-space: nowrap;
+  user-select: none;
+  font-size: @size-font-base;
+  border-radius: 2px;
+  border: 0 !important;
+  position: relative;
+  text-decoration: none;
 
-        height: @btn-circle-size;
-        line-height: @btn-circle-size;
+  height: @btn-circle-size;
+  line-height: @btn-circle-size;
 
-        box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1);
 
-        .btn-color(@btn-default-bg);
-        color: @text-color  !important;
+  .btn-color(@btn-default-bg);
+  color: @text-color !important;
 
-        margin: 10px 0;
+  margin: 10px 0;
 
-        &:hover {
-            opacity: 0.9;
-        }
+  &:hover {
+    opacity: 0.9;
+  }
 
-        &:focus {
-            outline: 0;
-        }
+  &:focus {
+    outline: 0;
+  }
 
-        &-long {
-            border-radius: 0;
-            margin: 0;
-            box-shadow: none;
-        }
+  &-long {
+    border-radius: 0;
+    margin: 0;
+    box-shadow: none;
+  }
 
-        &-large {
-            height: @btn-circle-size-large;
-            line-height: @btn-circle-size-large;
-        }
+  &-large {
+    height: @btn-circle-size-large;
+    line-height: @btn-circle-size-large;
+  }
 
-        &-small {
-            height: @btn-circle-size-small;
-            line-height: @btn-circle-size-small;
-        }
+  &-small {
+    height: @btn-circle-size-small;
+    line-height: @btn-circle-size-small;
+  }
 
-        &-primary {
-            .btn-primary;
-        }
+  &-primary {
+    .btn-primary;
+  }
 
-        &-ghost {
-            .btn-ghost;
-        }
+  &-ghost {
+    .btn-ghost;
+  }
 
-        &-success {
-            .btn-color(@success-color);
-        }
+  &-success {
+    .btn-color(@success-color);
+  }
 
-        &-warning {
-            .btn-color(@warning-color);
-        }
+  &-warning {
+    .btn-color(@warning-color);
+  }
 
-        &-error {
-            .btn-color(@error-color);
-        }
+  &-error {
+    .btn-color(@error-color);
+  }
 
-        &-info {
-            .btn-color(@info-color);
-        }
+  &-info {
+    .btn-color(@info-color);
+  }
 
-        &-circle {
-            border-radius: @btn-circle-size;
-        }
+  &-circle {
+    border-radius: @btn-circle-size;
+  }
 
-        &-large&-circle {
-            border-radius: @btn-circle-size-large;
-        }
+  &-large&-circle {
+    border-radius: @btn-circle-size-large;
+  }
 
-        &-small&-circle {
-            border-radius: @btn-circle-size-small;
-        }
+  &-small&-circle {
+    border-radius: @btn-circle-size-small;
+  }
 
-        &-loading {
-            opacity: 0.6;
-        }
+  &-loading {
+    opacity: 0.6;
+  }
 
-        &-loading-inner {
-            display: inline-block;
-            margin-right: 12px;
-            vertical-align: middle;
-            width: 14px;
-            height: 14px;
-            background: transparent;
-            border-radius: 50%;
-            border: 2px solid #fff;
-            border-color: #fff #fff #fff transparent;
-            animation: btn-spin 0.6s linear;
-            animation-iteration-count: infinite;
-        }
+  &-loading-inner {
+    display: inline-block;
+    margin-right: 12px;
+    vertical-align: middle;
+    width: 14px;
+    height: 14px;
+    background: transparent;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    border-color: #fff #fff #fff transparent;
+    animation: btn-spin 0.6s linear;
+    animation-iteration-count: infinite;
+  }
 
-        &-disabled {
-            color: @btn-disable-color  !important;
-            background: @btn-disable-bg  !important;
-        }
+  &-disabled {
+    color: @btn-disable-color !important;
+    background: @btn-disable-bg !important;
+  }
 
-        &-inline {
-            display: inline-block;
-            width: auto;
-        }
-    }
+  &-inline {
+    display: inline-block;
+    width: auto;
+  }
+}
 
-    @keyframes btn-spin {
-        0% {
-            transform: rotate(0);
-        }
+@keyframes btn-spin {
+  0% {
+    transform: rotate(0);
+  }
 
-        100% {
-            transform: rotate(360deg);
-        }
-    }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 </style>

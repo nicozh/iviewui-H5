@@ -17,7 +17,7 @@
 </template>
 <script>
     export default {
-        name: 'v-card',
+        name: 'i-card',
         props: {
             title: String,
             thumb: String,

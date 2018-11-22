@@ -1,12 +1,13 @@
 <template>
-    <div :class="[iClass, 'i-collapse']">
-        <slot></slot>
-    </div>
+  <div :class="[iClass, 'i-collapse']">
+    <slot></slot>
+  </div>
 </template>
 <script>
 export default {
+  name: "i-collapse",
   props: {
-    iClass: String,  
+    iClass: String,
     name: String,
     accordion: Boolean
   },

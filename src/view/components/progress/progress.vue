@@ -11,123 +11,124 @@
     </div>
 </template>
 <script>
-    export default {
-        props: {
-            percent: {
-                type: Number,
-                default: 0
-            },
-            // normal || active || wrong || success
-            status: {
-                type: String,
-                default: 'normal'
-            },
-            strokeWidth: {
-                type: Number,
-                default: 10
-            },
-            hideInfo: {
-                type: Boolean,
-                default: false
-            }
-        }
+export default {
+  name: "i-progress",
+  props: {
+    percent: {
+      type: Number,
+      default: 0
+    },
+    // normal || active || wrong || success
+    status: {
+      type: String,
+      default: "normal"
+    },
+    strokeWidth: {
+      type: Number,
+      default: 10
+    },
+    hideInfo: {
+      type: Boolean,
+      default: false
     }
+  }
+};
 </script>
 
 <style lang="less">
-    @import "../styles/_base.less";
-    @import "../styles/_mixins.less";
+@import "../styles/_base.less";
+@import "../styles/_mixins.less";
 
-    @progress-prefix-cls: i-progress;
+@progress-prefix-cls: i-progress;
 
-    .i-progress {
-        display: inline-block;
-        width: 100%;
+.i-progress {
+  display: inline-block;
+  width: 100%;
 
-        font-size: @size-font-small;
-        position: relative;
+  font-size: @size-font-small;
+  position: relative;
 
-        &-outer {
-            display: inline-block;
-            width: 100%;
-            margin-right: 0;
-            padding-right: 0;
-            box-sizing: border-box;
+  &-outer {
+    display: inline-block;
+    width: 100%;
+    margin-right: 0;
+    padding-right: 0;
+    box-sizing: border-box;
 
-            .@{progress-prefix-cls}-show-info & {
-                padding-right: 55px;
-                margin-right: -55px;
-            }
-        }
+    .@{progress-prefix-cls}-show-info & {
+      padding-right: 55px;
+      margin-right: -55px;
+    }
+  }
 
-        &-inner {
-            display: inline-block;
-            width: 100%;
-            background-color: #f3f3f3;
-            border-radius: 100px;
-            vertical-align: middle;
-        }
+  &-inner {
+    display: inline-block;
+    width: 100%;
+    background-color: #f3f3f3;
+    border-radius: 100px;
+    vertical-align: middle;
+  }
 
-        &-bg {
-            border-radius: 100px;
-            background-color: @info-color;
-            transition: all @transition-time linear;
-            position: relative;
-        }
+  &-bg {
+    border-radius: 100px;
+    background-color: @info-color;
+    transition: all @transition-time linear;
+    position: relative;
+  }
 
-        &-text {
-            display: inline-block;
-            margin-left: 5px;
-            text-align: left;
-            font-size: 1em;
-            vertical-align: middle;
-        }
+  &-text {
+    display: inline-block;
+    margin-left: 5px;
+    text-align: left;
+    font-size: 1em;
+    vertical-align: middle;
+  }
 
-        &-active {
-            .@{progress-prefix-cls}-bg:before {
-                content: '';
-                opacity: 0;
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                background: #fff;
-                border-radius: 10px;
-                animation: i-progress-active 2s @ease-in-out infinite;
-            }
-        }
+  &-active {
+    .@{progress-prefix-cls}-bg:before {
+      content: "";
+      opacity: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: #fff;
+      border-radius: 10px;
+      animation: i-progress-active 2s @ease-in-out infinite;
+    }
+  }
 
-        &-wrong {
-            .@{progress-prefix-cls}-bg {
-                background-color: @error-color;
-            }
-
-            .@{progress-prefix-cls}-text {
-                color: @error-color;
-            }
-        }
-
-        &-success {
-            .@{progress-prefix-cls}-bg {
-                background-color: @success-color;
-            }
-
-            .@{progress-prefix-cls}-text {
-                color: @success-color;
-            }
-        }
+  &-wrong {
+    .@{progress-prefix-cls}-bg {
+      background-color: @error-color;
     }
 
-    @keyframes i-progress-active {
-        0% {
-            opacity: .3;
-            width: 0;
-        }
-
-        100% {
-            opacity: 0;
-            width: 100%;
-        }
+    .@{progress-prefix-cls}-text {
+      color: @error-color;
     }
+  }
+
+  &-success {
+    .@{progress-prefix-cls}-bg {
+      background-color: @success-color;
+    }
+
+    .@{progress-prefix-cls}-text {
+      color: @success-color;
+    }
+  }
+}
+
+@keyframes i-progress-active {
+  0% {
+    opacity: 0.3;
+    width: 0;
+  }
+
+  100% {
+    opacity: 0;
+    width: 100%;
+  }
+}
 </style>

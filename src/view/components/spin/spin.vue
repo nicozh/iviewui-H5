@@ -1,15 +1,16 @@
 <template>
-    <div :class="[iClass, 'i-spin', `i-spin-${size}` , fix ? 'i-spin-fix' : ''  , custom ? 'i-spin-show-text' : '' , fullscreen ? 'i-spin-fullscreen' : '']">
-        <div class="i-spin-main">
-            <div class="i-spin-dot"></div>
-            <div class="i-spin-text">
-                <slot></slot>
-            </div>
-        </div>
+  <div :class="[iClass, 'i-spin', `i-spin-${size}` , fix ? 'i-spin-fix' : ''  , custom ? 'i-spin-show-text' : '' , fullscreen ? 'i-spin-fullscreen' : '']">
+    <div class="i-spin-main">
+      <div class="i-spin-dot"></div>
+      <div class="i-spin-text">
+        <slot></slot>
+      </div>
     </div>
+  </div>
 </template>
 <script>
 export default {
+  name: "i-spin",
   props: {
     iClass: String,
     size: {

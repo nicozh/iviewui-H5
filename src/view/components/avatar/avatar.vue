@@ -8,6 +8,7 @@
 </template>
 <script>
 export default {
+  name: 'i-avatar',
   props: {
     shape: {
       type: String,
