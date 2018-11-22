@@ -1,9 +1,5 @@
 <template>
     <div>
-        <i-card title="你好" thumb="https://i.loli.net/2017/08/21/599a521472424.jpg" extra="额外内容">
-            <div slot="content">内容</div>
-            <div slot="footer">footer</div>
-        </i-card>
         <p style="margin: 16px">默认</p>
         <i-card title="卡片标题" extra="额外内容" thumb="https://i.loli.net/2017/08/21/599a521472424.jpg">
             <p slot="content">内容不错</p>

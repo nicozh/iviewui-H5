@@ -1,5 +1,5 @@
 <template>
-    <div class="i-card " :class="full ? 'i-card-full' : ''">
+    <div :class="['i-card', full ? 'i-card-full' : '']">
         <div class="i-class i-card-header">
             <div class="i-card-header-content">
                 <img class="i-card-header-thumb" :src="thumb" v-if="thumb" />
