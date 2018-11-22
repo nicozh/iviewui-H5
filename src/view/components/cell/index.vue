@@ -1,24 +1,28 @@
 <template>
-    <div @click="navigateTo" :class="['i-cell' ,isLastCell ? 'i-cell-last' : ''  ,isLink ? 'i-cell-access' : '' ]">
-        <div class="i-cell-icon">
-            <slot name="icon"></slot>
-        </div>
-        <div class="i-cell-bd">
-            <div v-if="title" class="i-cell-text">{{ title }}</div>
-            <div v-if="label" class="i-cell-desc">{{ label }}</div>
-            <slot></slot>
-        </div>
-        <div class="i-cell-ft">
-            <div v-if="value">{{ value }}</div>
-            <div v-else>
-                <slot name="footer"></slot>
-            </div>
-        </div>
+  <div @click="handleTap" :class="['i-cell' ,isLastCell ? 'i-cell-last' : ''  ,isLink ? 'i-cell-access' : '' ]">
+    <div class="i-cell-icon">
+      <slot name="icon"></slot>
     </div>
+    <div class="i-cell-bd">
+      <div v-if="title" class="i-cell-text">{{ title }}</div>
+      <div v-if="label" class="i-cell-desc">{{ label }}</div>
+      <slot></slot>
+    </div>
+    <div @click.stop="navigateTo" class="i-cell-ft">
+      <div v-if="value">{{ value }}</div>
+      <div v-else>
+        <slot name="footer"></slot>
+      </div>
+    </div>
+  </div>
 
 </template>
 <script>
+import findParent from "../mixins/find-parent.js";
+
 export default {
+  name: "i-cell",
+  mixins: [findParent],
   props: {
     // 左侧标题
     title: {
@@ -41,11 +45,6 @@ export default {
       type: Boolean,
       default: false
     },
-    // 链接类型，可选值为 navigateTo，redirectTo，switchTab，reLaunch
-    linkType: {
-      type: String,
-      value: "navigateTo"
-    },
     url: {
       type: String,
       value: ""
@@ -58,8 +57,23 @@ export default {
   },
   methods: {
     navigateTo() {
-      // console.log('点击跳转')
+      const url = this.url;
+      this.$emit("click", {});
+      if (!this.isLink || !url || url === "true" || url === "false") return;
+      location.href = url;
+    },
+    handleTap() {
+      if (!this.onlyTapFooter) {
+        this.navigateTo();
+      }
+    },
+    updateIsLastCell(isLastCell) {
+      this.isLastCell = isLastCell;
     }
+  },
+  created() {
+    this.findParent("i-cell-group");
+    this.parent ? this.parent._updateIsLastCell() : "";
   }
 };
 </script>

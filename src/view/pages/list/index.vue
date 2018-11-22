@@ -29,13 +29,14 @@
         <i-panel class="cell-panel-demo" title="cell 组">
             <i-cell-group>
                 <i-cell title="只显示箭头" is-link></i-cell>
-                <i-cell title="跳转到首页" is-link url="/pages/index/index"></i-cell>
+                <i-cell title="跳转到首页" is-link url="/pages/index/index "></i-cell>
                 <i-cell title="只有 footer 点击有效" is-link url="/pages/index/index" only-tap-footer></i-cell>
                 <div v-if="switch1">
                     <i-cell title="单行列表" label="附加描述" value="详细信息"></i-cell>
-                    <!-- <i-cell title="表单">
-                        <input slot="footer" type="digit" placeholder="带小数点的数字键盘" />
-                    </i-cell> -->
+                    <i-cell title="表单">
+                        <i-input title="收货人"></i-input>
+                        <i-input title="地址"></i-input>
+                    </i-cell>
                 </div>
                 <i-cell title="开关">
                     <i-switch :value="switch1" @change="onChange" slot="footer">
@@ -61,7 +62,7 @@ export default {
   methods: {
     onChange(value) {
       this.switch1 = value;
-    }
+    },
   }
 };
 </script>
