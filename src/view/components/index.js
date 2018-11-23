@@ -35,6 +35,8 @@ import message from './message'
 import avatar from './avatar/avatar.vue'
 import inputNumber from './input-number/input-number.vue'
 import loadMore from './load-more/load-more.vue'
+import checkbox from './checkbox/checkbox.vue'
+import checkboxGroup from './checkbox/checkbox-group.vue'
 
 const install = (Vue) => {
   Vue.component('i-card', card)
@@ -68,7 +70,7 @@ const install = (Vue) => {
   Vue.component('i-collapse', collapse)
   Vue.component('i-collapse-item', collapseItem)  
   Vue.component('i-radio-group', radioGroup)
-  Vue.component('i-radio', radio)
+  Vue.component('i-radio', radio)    
   Vue.component('i-rate', rate)
   Vue.use(toast)
   Vue.component('i-spin', spin)
@@ -77,7 +79,11 @@ const install = (Vue) => {
   Vue.component('i-avatar', avatar)
   Vue.component('i-input-number', inputNumber)
   Vue.component('i-load-more', loadMore)
+  Vue.component('i-checkbox', checkbox)
+  Vue.component('i-checkbox-group', checkboxGroup)
 
 }
-
+export {
+  radioGroup,radio
+}
 export default install
