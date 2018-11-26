@@ -12,7 +12,7 @@ export default {
       type: String
     },
     size: {
-      type: Number,
+      type: [Number,String],
       value: 14
     },
     color: {

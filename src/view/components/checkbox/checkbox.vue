@@ -3,9 +3,7 @@
   <div :class="['i-checkbox']" @click.stop="checkboxChange(value)">
     <i-cell class="i-checkbox-cell">
       <label>
-        <div :class="['i-checkbox-radio', positionCls]">
-          <i-icon :color="changeColor()" :type="checked?'success_fill':'radio_off'" :size="26"></i-icon>
-        </div>
+        <i-icon :class="['i-checkbox-radio', positionCls]" :color="changeColor()" :type="checked?'success_fill':'radio_off'" :size="24"></i-icon>
         <!-- <input type="checkbox" :value="value" :checked="checked" :style="{color:checked?color:''}" :disabled="disabled" :class="['i-checkbox-radio', positionCls]"> -->
         <div class="i-checkbox-title">{{value}}</div>
       </label>
@@ -139,9 +137,8 @@ export default {
   &-title {
     display: inline-block;
     vertical-align: middle;
-    line-height: 26px;
+    line-height: 24px;
     margin-left: 8px;
-    // position: absolute
   }
 }
 </style>

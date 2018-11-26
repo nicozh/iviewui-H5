@@ -2,7 +2,8 @@
   <div :class="[iClass, 'i-radio']" @click.stop="radioChange">
     <i-cell i-class="i-radio-cell">
       <label>
-        <input v-model="currentValue" type="radio" :value="value" :checked="checked" :disabled="disabled" :class="['i-radio-radio',positionCls]" :style="{color:checked?color:''}">
+        <i-icon size="24" :color="changeColor()" :type="currentValue === value?'success_fill':'radio_off'" :class="['i-radio-radio',positionCls]"></i-icon>
+        <input style="display:none" v-model="currentValue" type="radio" :value="value" :disabled="disabled" :class="['i-radio-radio',positionCls]">
         <div class="i-radio-title">{{value}}</div>
       </label>
     </i-cell>
@@ -10,7 +11,7 @@
 </template>
 <script>
 import findParent from "../mixins/find-parent.js";
-import iCell from "../cell/index";
+import iCell from "../list/cell";
 const prefixCls = "i-radio";
 export default {
   components: { [iCell.name]: iCell },
@@ -21,10 +22,6 @@ export default {
     value: {
       type: String,
       default: ""
-    },
-    checked: {
-      type: Boolean,
-      default: false
     },
     disabled: {
       type: Boolean,
@@ -41,7 +38,6 @@ export default {
   },
   data() {
     return {
-      //   checked: true,
       positionCls: `${prefixCls}-radio-left`
     };
   },
@@ -62,7 +58,7 @@ export default {
   },
   created() {
     this.setPosition();
-    this.findParent("radio-group");
+    this.findParent("i-radio-group");
   },
   methods: {
     radioChange() {
@@ -74,6 +70,15 @@ export default {
         this.position.indexOf("left") !== -1
           ? `${prefixCls}-radio-left`
           : `${prefixCls}-radio-right`;
+    },
+    changeColor() {
+      if (this.value === this.currentValue && !this.disabled) {
+        return this.color;
+      } else if (this.value === this.currentValue && this.disabled) {
+        return "#999";
+      } else {
+        return "#ccc";
+      }
     }
   }
 };
@@ -101,6 +106,8 @@ export default {
   &-title {
     display: inline-block;
     vertical-align: middle;
+    margin-left: 8px;
+    line-height: 24px;
   }
 }
 </style>

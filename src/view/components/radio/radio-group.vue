@@ -4,7 +4,7 @@
   </i-cell-group>
 </template>
 <script>
-import iCellGroup from "../cell-group/index";
+import iCellGroup from "../list/cell-group";
 export default {
   components: { [iCellGroup.name]: iCellGroup },
   name: "i-radio-group",
