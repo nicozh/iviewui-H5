@@ -5,6 +5,7 @@
 </template>
 <script>
 export default {
+  name: 'i-grid-item',
   props: {
     iClass: String
   },

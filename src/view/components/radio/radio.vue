@@ -1,18 +1,20 @@
 <template>
-    <div :class="[iClass, 'i-radio']" @click.stop="radioChange">
-        <i-cell i-class="i-radio-cell">
-            <label>
-                <input v-model="currentValue" type="radio" :value="value" :checked="checked" :disabled="disabled" :class="['i-radio-radio',positionCls]" :style="{color:checked?color:''}">
-                <div class="i-radio-title">{{value}}</div>
-            </label>
-        </i-cell>
-    </div>
+  <div :class="[iClass, 'i-radio']" @click.stop="radioChange">
+    <i-cell i-class="i-radio-cell">
+      <label>
+        <input v-model="currentValue" type="radio" :value="value" :checked="checked" :disabled="disabled" :class="['i-radio-radio',positionCls]" :style="{color:checked?color:''}">
+        <div class="i-radio-title">{{value}}</div>
+      </label>
+    </i-cell>
+  </div>
 </template>
 <script>
 import findParent from "../mixins/find-parent.js";
+import iCell from "../cell/index";
 const prefixCls = "i-radio";
 export default {
-  name: "radio",
+  components: { [iCell.name]: iCell },
+  name: "i-radio",
   mixins: [findParent],
   props: {
     iClass: String,

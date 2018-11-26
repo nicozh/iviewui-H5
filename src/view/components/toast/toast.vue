@@ -22,8 +22,10 @@
 
 </template>
 <script>
+import Icon from "../icon/index";
 export default {
   name: "toast",
+  components: { [Icon.name]: Icon },
   props: {
     visible: {
       type: Boolean,

@@ -1,30 +1,32 @@
 <template>
-    <div>
-        <div :class="['i-as-mask', iClassMask, visible ? 'i-as-mask-show' : '' ]" @click="handleClickMask"></div>
-        <div :class="[iClass, 'i-as' , visible ? 'i-as-show' : '' ]">
-            <div :class="['i-as-header', iClassHeader]">
-                <slot name="header"></slot>
-            </div>
-            <div class="i-as-actions">
-                <div class="i-as-action-item" v-for="(item,index) in actions" :key="item.name">
-                    <i-button @click="handleClickItem(index)" :data-index="index" type="ghost" size="large" :long="true">
-                        <div class="i-as-btn-loading" v-if="item.loading"></div>
-                        <i-icon v-if="item.icon" :type="item.icon" i-class="i-as-btn-icon"></i-icon>
-                        <div class="i-as-btn-text" :style="{color: item.color ? item.color : ''}">{{ item.name
-                            }}</div>
-                    </i-button>
-                </div>
-            </div>
-            <div class="i-as-cancel" v-if="showCancel">
-                <i-button i-class="i-as-cancel-btn" type="ghost" size="large" :long="true" @click="handleClickCancel">{{
-                    cancelText }}</i-button>
-            </div>
+  <div>
+    <div :class="['i-as-mask', iClassMask, visible ? 'i-as-mask-show' : '' ]" @click="handleClickMask"></div>
+    <div :class="[iClass, 'i-as' , visible ? 'i-as-show' : '' ]">
+      <div :class="['i-as-header', iClassHeader]">
+        <slot name="header"></slot>
+      </div>
+      <div class="i-as-actions">
+        <div class="i-as-action-item" v-for="(item,index) in actions" :key="item.name">
+          <i-button @click="handleClickItem(index)" :data-index="index" type="ghost" size="large" :long="true">
+            <div class="i-as-btn-loading" v-if="item.loading"></div>
+            <i-icon v-if="item.icon" :type="item.icon" i-class="i-as-btn-icon"></i-icon>
+            <div class="i-as-btn-text" :style="{color: item.color ? item.color : ''}">{{ item.name
+              }}</div>
+          </i-button>
         </div>
+      </div>
+      <div class="i-as-cancel" v-if="showCancel">
+        <i-button i-class="i-as-cancel-btn" type="ghost" size="large" :long="true" @click="handleClickCancel">{{
+          cancelText }}</i-button>
+      </div>
     </div>
+  </div>
 </template>
 <script>
+import Button from "../button/button";
 export default {
   name: "i-action-sheet",
+  components: { [Button.name]: Button },
   props: {
     iClassMask: String,
     iClass: String,

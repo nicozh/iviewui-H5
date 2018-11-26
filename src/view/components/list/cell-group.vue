@@ -28,7 +28,6 @@ export default {
         let lastIndex = len - 1;
         cells.forEach((cell, index) => {
           cell.updateIsLastCell(index === lastIndex);
-          console.log(cell.isLastCell);
         });
       }
     }

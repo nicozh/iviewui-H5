@@ -9,8 +9,10 @@
   </div>
 </template>
 <script>
+import Icon from "../icon/index";
 export default {
   name: "i-rate",
+  components: { [Icon.name]: Icon },
   props: {
     iClass: String,
     count: {

@@ -16,7 +16,7 @@
 
         <i-panel title="居中固定"></i-panel>
 
-        <div class="container">
+        <div class="spin-container">
             <i-spin fix></i-spin>
         </div>
 
@@ -80,7 +80,7 @@ export default {
   height: 100px;
   text-align: center;
 }
-.container {
+.spin-container {
   display: block;
   width: 200px;
   height: 100px;

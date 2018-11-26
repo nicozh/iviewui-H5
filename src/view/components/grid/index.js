@@ -1,11 +1,11 @@
-import grid from './grid.vue'
-import gridItem from './grid-item.vue'
-import gridIcon from './grid-icon.vue'
-import gridLabel from './grid-label.vue'
+import Grid from './grid.vue'
+import GridItem from './grid-item.vue'
+import GridIcon from './grid-icon.vue'
+import GridLabel from './grid-label.vue'
 
 export {
-    grid,
-    gridItem,
-    gridIcon,
-    gridLabel
+    Grid,
+    GridItem,
+    GridIcon,
+    GridLabel
 }

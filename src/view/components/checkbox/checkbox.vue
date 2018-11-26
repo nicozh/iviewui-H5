@@ -4,7 +4,7 @@
     <i-cell class="i-checkbox-cell">
       <label>
         <div :class="['i-checkbox-radio', positionCls]">
-          <i-icon :color="changeColor()" :type="checked?'success_fill':'success'" :size="26"></i-icon>
+          <i-icon :color="changeColor()" :type="checked?'success_fill':'radio_off'" :size="26"></i-icon>
         </div>
         <!-- <input type="checkbox" :value="value" :checked="checked" :style="{color:checked?color:''}" :disabled="disabled" :class="['i-checkbox-radio', positionCls]"> -->
         <div class="i-checkbox-title">{{value}}</div>
@@ -48,7 +48,7 @@ export default {
   },
   created() {
     this.setPosition();
-    this.findParent("checkbox-group");
+    this.findParent("i-checkbox-group");
   },
   computed: {
     checked: {
@@ -59,7 +59,6 @@ export default {
       },
       set(val) {
         if (this.parent) {
-          console.log(val);
           this.setParentValue(val);
         } else {
           this.$emit("input", val);
@@ -68,17 +67,16 @@ export default {
     },
     isDisabled() {
       return (this.parent && this.parent.disabled) || this.disabled;
-    },
+    }
   },
   methods: {
     changeColor() {
       if (this.checked && !this.disabled) {
-        console.log('xx')
         return "#2d8cf0";
       } else if (this.checked && this.disabled) {
         return "#999";
-      }else{
-        return '#ccc'
+      } else {
+        return "#ccc";
       }
     },
     changeCurrent(current) {
@@ -93,7 +91,6 @@ export default {
     checkboxChange() {
       if (!this.disabled) {
         this.checked = !this.checked;
-        console.log(22);
       }
     },
     setParentValue(val) {
@@ -104,7 +101,6 @@ export default {
         if (parent.max && value.length >= parent.max) {
           return;
         }
-        console.log(1111);
         if (value.indexOf(this.value) === -1) {
           value.push(this.value);
           parent.$emit("input", value);

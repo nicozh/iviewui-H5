@@ -16,90 +16,90 @@
     </div>
 </template>
 <script>
-    export default {
-        name: 'i-card',
-        props: {
-            title: String,
-            thumb: String,
-            extra: String,
-            full: Boolean
-        },
-    }
+export default {
+  name: "i-card",
+  props: {
+    title: String,
+    thumb: String,
+    extra: String,
+    full: Boolean
+  }
+};
 </script>
 <style lang="less">
-    @import "../styles/_base.less";
-    @import "../styles/_mixins.less";
+@import "../styles/_base.less";
+@import "../styles/_mixins.less";
 
-    .i-card {
-        margin: 0 16px;
-        font-size: @size-font-base;
-        overflow: hidden;
-        position: relative;
-        background: #fff;
-        border: 1px solid @border-color-base;
-        border-radius: 5px;
+.i-card {
+  margin: 0 16px;
+  font-size: @size-font-base;
+  overflow: hidden;
+  position: relative;
+  background: #fff;
+  border: 1px solid @border-color-base;
+  border-radius: 5px;
 
-        &-full {
-            margin: 0;
-            border-left: none;
-            border-right: none;
-            border-radius: 0;
-        }
+  &-full {
+    margin: 0;
+    border-left: none;
+    border-right: none;
+    border-radius: 0;
+  }
 
-        &-header {
-            display: flex;
-            padding: 6px 16px;
-            align-items: center;
+  &-header {
+    display: flex;
+    padding: 6px 16px;
+    align-items: center;
 
-            &-content {
-                flex: 1;
-                text-align: left;
-            }
-
-            &-thumb {
-                display: inline-block;
-                width: 64px;
-                height: 64px;
-                position: relative;
-                margin-left: auto;
-                margin-right: auto;
-                overflow: hidden;
-                background-size: cover;
-                vertical-align: middle;
-            }
-
-            &-title {
-                display: inline-block;
-                vertical-align: middle;
-                font-size: @size-font-base;
-                color: @title-color;
-            }
-
-            &-extra {
-                flex: 1;
-                text-align: right;
-                font-size: @size-font-base;
-                color: @subsidiary-color;
-            }
-        }
-
-        &-body {
-            position: relative;
-            padding: 6px 16px;
-            color: @text-color;
-            font-size: @size-font-base;
-
-            &::before {
-                .hairline();
-                border-top-width: 1px;
-            }
-        }
-
-        &-footer {
-            position: relative;
-            padding: 6px 16px;
-            color: @subsidiary-color;
-            font-size: @size-font-small;
-        }
+    &-content {
+      flex: 1;
+      text-align: left;
     }
+
+    &-thumb {
+      display: inline-block;
+      width: 64px;
+      height: 64px;
+      position: relative;
+      margin-left: auto;
+      margin-right: auto;
+      overflow: hidden;
+      background-size: cover;
+      vertical-align: middle;
+    }
+
+    &-title {
+      display: inline-block;
+      vertical-align: middle;
+      font-size: @size-font-base;
+      color: @title-color;
+    }
+
+    &-extra {
+      flex: 1;
+      text-align: right;
+      font-size: @size-font-base;
+      color: @subsidiary-color;
+    }
+  }
+
+  &-body {
+    position: relative;
+    padding: 6px 16px;
+    color: @text-color;
+    font-size: @size-font-base;
+
+    &::before {
+      .hairline();
+      border-top-width: 1px;
+    }
+  }
+
+  &-footer {
+    position: relative;
+    padding: 6px 16px;
+    color: @subsidiary-color;
+    font-size: @size-font-small;
+  }
+}
 </style>

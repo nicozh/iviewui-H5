@@ -1,16 +1,18 @@
 <template>
-    <i-cell-group>
-        <slot></slot>
-    </i-cell-group>
+  <i-cell-group>
+    <slot></slot>
+  </i-cell-group>
 </template>
 <script>
+import iCellGroup from "../cell-group/index";
 export default {
-  name: "radio-group",
+  components: { [iCellGroup.name]: iCellGroup },
+  name: "i-radio-group",
   props: {
     value: {
       type: String,
       default: ""
-    },
+    }
   },
   watch: {
     value: function() {

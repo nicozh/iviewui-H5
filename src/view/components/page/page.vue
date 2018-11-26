@@ -1,26 +1,28 @@
 <template>
-    <div :class="[iClass, 'i-page']">
-        <div class="i-page-prev" v-if="mode === 'button'">
-            <i-button i-class="i-page-button" type="ghost" @click="handlePrev" :disabled="current === 1">
-                <slot name="prev"></slot>
-            </i-button>
-        </div>
-        <div class="i-page-number" v-if="mode !== 'pointer' && !simple">
-            <div class="i-page-number-current">{{ current }}</div>/{{total}}
-        </div>
-        <div class="i-page-pointer" v-if="mode === 'pointer'">
-            <div :class="['i-page-pointer-dot', index + 1 === current ? 'current' : '']" v-for="(item,index) in total" :key="index"></div>
-        </div>
-        <div class="i-page-next" v-if="mode === 'button'">
-            <i-button i-class="i-page-button" type="ghost" @click="handleNext" :disabled="current === total">
-                <slot name="next"></slot>
-            </i-button>
-        </div>
+  <div :class="[iClass, 'i-page']">
+    <div class="i-page-prev" v-if="mode === 'button'">
+      <i-button i-class="i-page-button" type="ghost" @click="handlePrev" :disabled="current === 1">
+        <slot name="prev"></slot>
+      </i-button>
     </div>
+    <div class="i-page-number" v-if="mode !== 'pointer' && !simple">
+      <div class="i-page-number-current">{{ current }}</div>/{{total}}
+    </div>
+    <div class="i-page-pointer" v-if="mode === 'pointer'">
+      <div :class="['i-page-pointer-dot', index + 1 === current ? 'current' : '']" v-for="(item,index) in total" :key="index"></div>
+    </div>
+    <div class="i-page-next" v-if="mode === 'button'">
+      <i-button i-class="i-page-button" type="ghost" @click="handleNext" :disabled="current === total">
+        <slot name="next"></slot>
+      </i-button>
+    </div>
+  </div>
 </template>
 <script>
+import Button from "../button/button";
 export default {
   name: "i-page",
+  components: { [Button.name]: Button },
   props: {
     // button || number || pointer
     mode: {
@@ -58,9 +60,6 @@ export default {
 <style lang="less">
 @import "../styles/_base.less";
 @import "../styles/_mixins.less";
-.i-btn {
-  margin: 0;
-}
 .i-page {
   display: block;
   width: 100%;
@@ -68,7 +67,6 @@ export default {
   overflow: hidden;
   box-sizing: border-box;
   position: relative;
-
   &-prev {
     position: absolute;
     left: 10px;

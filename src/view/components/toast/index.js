@@ -2,9 +2,11 @@ import Vue from 'vue'
 import ToastConfig from './toast.vue'
 let instance = null
 let timer = null
+var Toast = {}
 // https://cn.vuejs.org/v2/api/#Vue-extend
 const ToastConstructor = Vue.extend(ToastConfig)
 ToastConstructor.prototype.close = function () {
+  console.log(111)
   this.visible = false
   // this.destroyeInstance()
   this.$el.addEventListener('transitionend', this.destroyeInstance.bind(this))
@@ -20,7 +22,7 @@ ToastConstructor.prototype.destroyeInstance = function () {
 function init(options) {
   // https://cn.vuejs.org/v2/api/#vm-mount
   let defaultOptions = {
-    visible: true,
+    visible: false,
     content: '默认',
     icon: "",
     image: "",
@@ -53,9 +55,8 @@ function init(options) {
     }, 3000)
   })
 }
-init.install = () => {
-  Vue.use(ToastConfig);
-};
+Toast.install = (Vue) => {
+  Vue.prototype.$Toast = init
+}
 
-Vue.prototype.$Toast = init;
-export default init
+export default Toast

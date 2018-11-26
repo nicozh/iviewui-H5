@@ -1,31 +1,33 @@
 <template>
-    <div :class="[iClass, 'i-step-item', getClass(status,current,index),  direction === 'vertical' ? 'i-step-vertical' : 'i-step-horizontal']" :style="getItemStyle(len,direction)">
-        <div class="i-step-item-ico">
-            <div class="i-step-ico" v-if="noIco(status,current,index,icon)">{{ index+1 }}</div>
-            <div class="i-step-ico" v-else>
-                <i-icon i-class="i-step-ico-in" :type="getIcoClass(status,icon)"></i-icon>
-            </div>
-            <div class="i-step-line" v-if="index !== len - 1"></div>
-        </div>
-        <div class="i-step-item-main">
-            <div class="i-step-item-title" v-if="title !== ''">
-                {{title}}
-            </div>
-            <div class="i-step-item-title" v-else>
-                <slot name="title"></slot>
-            </div>
-            <div class="i-step-item-content" v-if="content !== ''">
-                {{content}}
-            </div>
-            <div class="i-step-item-content" v-else>
-                <slot name="content"></slot>
-            </div>
-        </div>
+  <div :class="[iClass, 'i-step-item', getClass(status,current,index),  direction === 'vertical' ? 'i-step-vertical' : 'i-step-horizontal']" :style="getItemStyle(len,direction)">
+    <div class="i-step-item-ico">
+      <div class="i-step-ico" v-if="noIco(status,current,index,icon)">{{ index+1 }}</div>
+      <div class="i-step-ico" v-else>
+        <i-icon i-class="i-step-ico-in" :type="getIcoClass(status,icon)"></i-icon>
+      </div>
+      <div class="i-step-line" v-if="index !== len - 1"></div>
     </div>
+    <div class="i-step-item-main">
+      <div class="i-step-item-title" v-if="title !== ''">
+        {{title}}
+      </div>
+      <div class="i-step-item-title" v-else>
+        <slot name="title"></slot>
+      </div>
+      <div class="i-step-item-content" v-if="content !== ''">
+        {{content}}
+      </div>
+      <div class="i-step-item-content" v-else>
+        <slot name="content"></slot>
+      </div>
+    </div>
+  </div>
 </template>
 <script>
+import Icon from "../icon/index";
 export default {
   name: "i-step",
+  components: { [Icon.name]: Icon },
   props: {
     iClass: String,
     status: {

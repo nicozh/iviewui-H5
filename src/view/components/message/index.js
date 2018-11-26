@@ -2,6 +2,7 @@ import Vue from 'vue'
 import MessageConfig from './message.vue'
 let instance = null
 let timer = null
+var Message = {}
 // https://cn.vuejs.org/v2/api/#Vue-extend
 const MessageConstructor = Vue.extend(MessageConfig)
 
@@ -52,9 +53,8 @@ function initMessage(options) {
         }, duration)
     })
 }
-initMessage.install = () => {
-    Vue.use(MessageConfig);
-};
+Message.install = (Vue) => {
+    Vue.prototype.$Message = initMessage;
+}
 
-Vue.prototype.$Message = initMessage;
-export default initMessage
+export default Message

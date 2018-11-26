@@ -1,16 +1,17 @@
 <template>
-    <div :class="['i-tab-bar' , fixed ? 'i-tab-bar-fixed' : '' ]">
-        <slot></slot>
-        <div class="i-tab-bar-list">
-            <div @click="onChange(index)" class="i-tab-bar-layer" v-for="(item,index) in list " :key="index" :style="{width: 100 / list.length + '%'}">
-            </div>
-        </div>
+  <div :class="['i-tab-bar' , fixed ? 'i-tab-bar-fixed' : '' ]">
+    <slot></slot>
+    <div class="i-tab-bar-list">
+      <div @click="onChange(index)" class="i-tab-bar-layer" v-for="(item,index) in list " :key="index" :style="{width: 100 / list.length + '%'}">
+      </div>
     </div>
+  </div>
 </template>
 <script>
 export default {
+  name: "i-tab-bar",
   props: {
-    value: [Number,String],
+    value: [Number, String],
     fixed: {
       type: Boolean,
       default: false

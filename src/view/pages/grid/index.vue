@@ -1,26 +1,27 @@
 <template>
     <div>
         <i-grid>
-            <i-row>
-                <i-grid-item>
-                    <i-grid-icon>
-                        <i-icon :size="24" type="activity" />
-                        <i-grid-label>宫格</i-grid-label>
-                    </i-grid-icon>
-                </i-grid-item>
-                <i-grid-item>
-                    <i-grid-icon>
-                        <i-icon :size="24" type="addressbook" />
-                        <i-grid-label>宫格</i-grid-label>
-                    </i-grid-icon>
-                </i-grid-item>
-                <i-grid-item>
-                    <i-grid-icon>
-                        <i-icon :size="24" type="barrage" />
-                        <i-grid-label>宫格</i-grid-label>
-                    </i-grid-icon>
-                </i-grid-item>
-            </i-row>
+            <i-grid-item>
+                <i-grid-icon>
+                    <i-icon :size="24" type="activity" />
+                    <i-grid-label>宫格</i-grid-label>
+                </i-grid-icon>
+            </i-grid-item>
+            <i-grid-item>
+                <i-grid-icon>
+                    <i-icon :size="24" type="addressbook" />
+                    <i-grid-label>宫格</i-grid-label>
+                </i-grid-icon>
+            </i-grid-item>
+            <i-grid-item>
+                <i-grid-icon>
+                    <i-icon :size="24" type="barrage" />
+                    <i-grid-label>宫格</i-grid-label>
+                </i-grid-icon>
+            </i-grid-item>
+
+        </i-grid>
+        <i-grid>
             <i-row>
                 <i-grid-item>
                     <i-grid-icon>
@@ -41,6 +42,8 @@
                     </i-grid-icon>
                 </i-grid-item>
             </i-row>
+        </i-grid>
+        <i-grid>
             <i-row>
                 <i-grid-item>
                     <i-grid-icon>
@@ -64,21 +67,3 @@
         </i-grid>
     </div>
 </template>
-<style lang="less">
-    .row-class {
-        background: #fff;
-    }
-
-    .col-class {
-        height: 32px;
-        line-height: 32px;
-        color: #fff;
-        text-align: center;
-        background: #2d8cf0;
-        font-size: 12px;
-    }
-
-    .col-class.light {
-        background: #5cadff;
-    }
-</style>

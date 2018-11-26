@@ -9,7 +9,7 @@
 </style>
 <script>
 export default {
-  name: "checkbox-group",
+  name: "i-checkbox-group",
   props: {
     value: Array,
     max: {

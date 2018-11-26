@@ -10,8 +10,10 @@
   </div>
 </template>
 <script>
+import Icon from "../icon/index";
 export default {
   name: "i-collapse-item",
+  components: { [Icon.name]: Icon },
   props: {
     iClass: String,
     iClassTitle: String,

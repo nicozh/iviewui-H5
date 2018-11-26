@@ -105,7 +105,7 @@ export default {
 <style lang="less">
 @import "../styles/_base.less";
 @import "../styles/_mixins.less";
-@import "../cell/index.less";
+@import "../list/index.less";
 
 .i-input {
   padding: 7px 15px;
