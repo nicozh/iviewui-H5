@@ -37,6 +37,7 @@ import InputNumber from './input-number/input-number.vue'
 import LoadMore from './load-more/load-more.vue'
 import Checkbox from './checkbox/checkbox.vue'
 import CheckboxGroup from './checkbox/checkbox-group.vue'
+import CountDown from './count-down/count-down.vue'
 
 let components = [
   Card,
@@ -78,7 +79,8 @@ let components = [
   InputNumber,
   LoadMore,
   Checkbox,
-  CheckboxGroup
+  CheckboxGroup,
+  CountDown
 ]
 
 let plugins = [
@@ -138,6 +140,7 @@ export {
   Checkbox,
   CheckboxGroup,
   Message,
-  Toast
+  Toast,
+  CountDown
 }
 export default install
