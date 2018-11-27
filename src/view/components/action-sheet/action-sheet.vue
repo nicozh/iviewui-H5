@@ -49,11 +49,10 @@ export default {
     },
     actions: {
       type: Array,
-      default: []
+      default: function (){
+        return []
+      }
     }
-  },
-  data() {
-    return {};
   },
   methods: {
     handleClickMask() {
@@ -118,7 +117,7 @@ export default {
     &::after {
       .hairline();
       border-bottom-width: 1px;
-    }
+    };
   }
 
   &-header {

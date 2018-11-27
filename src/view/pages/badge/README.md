@@ -6,21 +6,55 @@
 
 #### 示例
 
-````
-<i-badge dot>
-    <view class="demo-badge"></view>
-</i-badge>
+```` html
+<template>
+    <div class="container">
+        <div class="demo">
+            <i-badge dot>
+                <div class="demo-badge"></div>
+            </i-badge>
+        </div>
+        <div class="demo">
+            <i-badge :count="3">
+                <div class="demo-badge"></div>
+            </i-badge>
+        </div>
+        <div class="demo">
+            <i-badge :count="123" :overflow-count="100">
+                <div class="demo-badge"></div>
+            </i-badge>
+        </div> 
+        <div class="demo">
+            <i-badge :count="66">
+            </i-badge>
+        </div>
+        <div class="demo">
+            <i-badge :count="66" i-class-alone="demo-badge-alone">
+            </i-badge>
+        </div>
+    </div>
+</template>
+<style lang="less">
+    .container {
+        margin: 10px;
+    }
 
-<i-badge count="3">
-    <view class="demo-badge"></view>
-</i-badge>
+    .demo {
+        margin: 20px;
+    }
 
-<i-badge count="123" overflow-count="100">
-    <view class="demo-badge"></view>
-</i-badge>
+    .demo-badge {
+        width: 42px;
+        height: 42px;
+        background: #eee;
+        border-radius: 6px;
+        display: inline-block;
+    }
 
-<i-badge count="66" i-class-alone="demo-badge-alone" />
-
+    .demo-badge-alone {
+        background: #5cb85c !important;
+    }
+</style>
 ````
 
 #### API

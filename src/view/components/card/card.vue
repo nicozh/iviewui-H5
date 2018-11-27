@@ -1,16 +1,16 @@
 <template>
     <div :class="['i-card', full ? 'i-card-full' : '']">
-        <div class="i-class i-card-header">
+        <div class="i-card-header">
             <div class="i-card-header-content">
                 <img class="i-card-header-thumb" :src="thumb" v-if="thumb" />
                 {{ title }}
             </div>
             <div class="i-card-header-extra" v-if="extra">{{ extra }}</div>
         </div>
-        <div class="i-class i-card-body">
+        <div class="i-card-body">
             <slot name="content"></slot>
         </div>
-        <div class="i-class i-card-footer">
+        <div class="i-card-footer">
             <slot name="footer"></slot>
         </div>
     </div>

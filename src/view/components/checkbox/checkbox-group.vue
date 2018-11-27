@@ -11,7 +11,12 @@
 export default {
   name: "i-checkbox-group",
   props: {
-    value: Array,
+    value: {
+      Array,
+      default: function() {
+        return [];
+      }
+    },
     max: {
       type: Number,
       default: 0
