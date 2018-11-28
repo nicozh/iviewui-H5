@@ -1,5 +1,5 @@
 <template>
-    <div :class="[iClass, 'i-drawer', visible ? 'i-drawer-show' : '' , 'i-drawer-' +`${mode}`]">
+    <div :class="['i-drawer', visible ? 'i-drawer-show' : '' , 'i-drawer-' +`${mode}`]">
         <div v-if="mask" class="i-drawer-mask" @click="handleMaskClick"></div>
         <div class="i-drawer-container">
             <slot></slot>
@@ -10,7 +10,6 @@
 export default {
   name: "i-drawer",
   props: {
-    iClass: String,
     visible: {
       type: Boolean,
       default: false
@@ -35,9 +34,6 @@ export default {
     return {};
   },
   methods: {
-    showcon() {
-      console.log(111);
-    },
     handleMaskClick() {
       if (!this.maskClosable) {
         return;

@@ -1,9 +1,14 @@
 # Modal 对话框
+
 #### 概述
+
 模态对话框，在浮层中显示，引导用户进行相关操作。
+
 #### 使用指南
+
 #### 示例
-```
+
+```html
 <template>
     <div>
         <div style="margin-top: 100px;">
@@ -115,15 +120,13 @@
 
             handleClick3(index) {
                 if (index === 0) {
-                    console.log('点击了现金支付')
-                    // $Message({
-                    //     content: '点击了现金支付'
-                    // });
+                    this.$Message({
+                        content: '点击了现金支付'
+                    });
                 } else if (index === 1) {
-                    console.log('点击了微信付')
-                    // $Message({
-                    //     content: '点击了微信支付'
-                    // });
+                    this.$Message({
+                        content: '点击了微信支付'
+                    });
                 }
                 this.visible3 = false
             },
@@ -153,14 +156,10 @@
                         action[1].loading = false;
                         this.visible5 = false
                         this.actions5 = action
-                        // this.setData({
-                        //     visible5: false,
-                        //     actions5: action
-                        // });
-                        // $Message({
-                        //     content: '删除成功！',
-                        //     type: 'success'
-                        // });
+                        this.$Message({
+                            content: '删除成功！',
+                            type: 'success'
+                        });
                     }, 2000);
                 }
             }
@@ -168,8 +167,11 @@
     }
 </script>
 ```
+
 #### API
+
 ##### Modal props
+
 | 属性        | 说明                                                                  | 类型    | 默认值     |
 |-------------|---------------------------------------------------------------------|---------|------------|
 | visible     | 是否显示组件                                                          | Boolean | false      |
@@ -180,13 +182,17 @@
 | cancel-text | 取消按钮的文案                                                        | String  | 取消       |
 | actions     | 按钮组，具体项参照后面的表格，设置此值后，则默认的确定和取消按钮不予显示 | Array   | []         |
 | action-mode | 按钮的排列方向，可选值为 horizontal 或 vertical                        | String  | horizontal |
+
 ##### Modal events
+
 | 属性   | 说明                                             | 返回值 |
 |--------|------------------------------------------------|--------|
 | click  | 点击某个按钮时触发，返回按钮所在 actions 中的索引 | index  |
 | ok     | 点击确定按钮时触发                               | -      |
 | cancel | 点击取消按钮时触发                               | -      |
+
 ##### Modal actions
+
 | 属性    | 说明                 | 类型    | 默认值 |
 |---------|--------------------|---------|--------|
 | name    | 按钮文案             | String  | -      |

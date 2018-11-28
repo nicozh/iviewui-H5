@@ -102,7 +102,6 @@ export default {
 | 属性     | 说明                        | 类型    | 默认值 |
 |----------|---------------------------|---------|--------|
 | value    | 当前项的 value              | String  | -      |
-| checked  | 当前项是否选中              | Boolean | false  |
 | disabled | 是否禁用当前项              | Boolean | false  |
 | color    | 主题色                      | String  | -      |
 | position | 位置，可选值为 left 或 right | String  | left   |

@@ -35,15 +35,12 @@
         <i-modal title="删除确认" :visible="visible5" :actions="actions5" @click="handleClick5">
             <p>删除后无法恢复哦</p>
         </i-modal>
-
-        <!-- <i-message id="message" /> -->
     </div>
 </template>
 <script>
     export default {
         data() {
             return {
-                // data: {
                     visible1: false,
                     visible2: false,
                     visible3: false,
@@ -82,7 +79,6 @@
                             loading: false
                         }
                     ]
-                // },
             }
         },
         methods: {
@@ -109,15 +105,13 @@
 
             handleClick3(index) {
                 if (index === 0) {
-                    console.log('点击了现金支付')
-                    // $Message({
-                    //     content: '点击了现金支付'
-                    // });
+                    this.$Message({
+                        content: '点击了现金支付'
+                    });
                 } else if (index === 1) {
-                    console.log('点击了微信付')
-                    // $Message({
-                    //     content: '点击了微信支付'
-                    // });
+                    this.$Message({
+                        content: '点击了微信支付'
+                    });
                 }
                 this.visible3 = false
             },
@@ -147,14 +141,10 @@
                         action[1].loading = false;
                         this.visible5 = false
                         this.actions5 = action
-                        // this.setData({
-                        //     visible5: false,
-                        //     actions5: action
-                        // });
-                        // $Message({
-                        //     content: '删除成功！',
-                        //     type: 'success'
-                        // });
+                        this.$Message({
+                            content: '删除成功！',
+                            type: 'success'
+                        });
                     }, 2000);
                 }
             }

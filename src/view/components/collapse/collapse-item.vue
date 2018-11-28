@@ -1,5 +1,5 @@
 <template>
-  <div :id="name" :class="[iClass, 'i-collapse-item']">
+  <div :class="['i-collapse-item']">
     <div class="i-collapse-item-title-wrap" @click="trigger">
       <i-icon :size="16" type="enter" :class="data.showContent ? 'i-collapse-item-arrow-show' : 'i-collapse-item-arrow' " />
       <span :class="['i-collapse-item-title', iClassTitle]">{{title}}</span>
@@ -11,11 +11,12 @@
 </template>
 <script>
 import Icon from "../icon/index";
+import findParent from '../mixins/find-parent.js'
 export default {
   name: "i-collapse-item",
+  mixins: [findParent],
   components: { [Icon.name]: Icon },
   props: {
-    iClass: String,
     iClassTitle: String,
     iClassContent: String,
     title: String,
@@ -29,10 +30,18 @@ export default {
       }
     };
   },
+  computed: {
+    items() {
+      return this.parent.allList;
+    },
+    index() {
+      return this.items.indexOf(this);
+    },
+  },
   methods: {
     trigger(e) {
-      if (this.$parent.accordion) {
-        this.$parent.clickfn(this.name);
+      if (this.parent.accordion) {
+        this.parent.clickfn(this.name);
       } else {
         this.data.showContent = this.data.showContent
           ? ""
@@ -40,11 +49,18 @@ export default {
       }
     }
   },
+  created(){
+    this.findParent('i-collapse')
+  },
   mounted() {
-    this.$parent.name === this.name
+    this.parent.allList.push(this)
+    this.parent.name === this.name
       ? (this.data.showContent = "i-collapse-item-show-content")
       : "";
-  }
+  },
+  destroyed() {
+    this.items.splice(this.index, 1);
+  },
 };
 </script>
 <style lang="less">

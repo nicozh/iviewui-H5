@@ -10,7 +10,7 @@
     <i-button @click="handleClick" type="ghost">切换单选框位置</i-button>
 
     <i-panel title="radio-动物">
-      <i-radio :value="animal" :disabled="disabled" :checked="checked" @change="handleAnimalChange">
+      <i-radio :value="animal" :disabled="disabled"  @change="handleAnimalChange">
       </i-radio>
     </i-panel>
 
@@ -57,7 +57,7 @@ export default {
       this.disabled = !this.disabled;
     },
     handleAnimalChange(value) {
-      console.log(value);
+      // console.log(value);
     }
   }
 };

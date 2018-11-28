@@ -12,7 +12,6 @@
                         <div v-if="actionMode === 'horizontal'">
                             <i-grid i-class="i-modal-grid">
                                 <i-grid-item :i-class="actions.length === (index + 1) ? 'i-modal-grid-item-last' : 'i-modal-grid-item'" v-for="(item,index) in actions" :key="item.name">
-                                    <!-- <template is="button" :data="item, index"></template> -->
                                     <template name="button">
                                         <i-button long type="ghost" @click="handleClickItem(index)">
                                             <div class="i-modal-btn-loading" v-if="item.loading"></div>
@@ -26,7 +25,6 @@
                         </div>
                         <div v-else>
                             <div class="i-modal-action-vertical" v-for="(item,index) in actions" :key="item.name">
-                                <!-- <template is="button" :data="item, index"></template> -->
                                 <template name="button">
                                     <i-button long type="ghost" @click="handleClickItem(index)">
                                         <div class="i-modal-btn-loading" v-if="item.loading"></div>
@@ -100,20 +98,12 @@ export default {
   },
   methods: {
     handleClickItem(index) {
-      // const dataset = currentTarget.dataset || {};
-      // const {index} = dataset;
-      console.log(index);
       this.$emit("click", index);
-      // this.triggerEvent('click', {
-      //     index
-      // });
     },
     handleClickOk() {
-      // this.triggerEvent('ok');
       this.$emit("ok");
     },
     handleClickCancel() {
-      // this.triggerEvent('cancel');
       this.$emit("cancel");
     }
   }

@@ -19,7 +19,10 @@ export default {
       type: String,
       default: "text"
     },
-    readonly: Boolean,
+    readonly: {
+      type:Boolean,
+      default: false
+    },
     disabled: {
       type: Boolean,
       default: false

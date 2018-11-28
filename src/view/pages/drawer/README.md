@@ -1,6 +1,8 @@
 # Drawer 抽屉
+
 #### 示例
-```
+
+```html
 <template>
     <div class="demo">
         <i-button @click="toggleLeft1" type="ghost">左边弹出1</i-button>
@@ -69,10 +71,18 @@
 ```
 
 #### API
+
+##### Drawer props
+
 | 属性          | 说明                            | 类型    | 默认值 |
 |---------------|-------------------------------|---------|--------|
-| i-class       | 自定义 class 类名               | String  | -      |
 | visible       | 是否显示组件                    | String  | -      |
 | mode          | 显示位置，可选值为 left 和 right | String  | left   |
 | mask          | 是否显示遮罩层                  | Boolean | true   |
 | mask-closable | 是否允许点击遮罩层关闭          | Boolean | true   |
+
+##### Drawer events
+
+| 事件名 | 说明                                   | 返回值 |
+|--------|--------------------------------------|--------|
+| close  | 当mask-closable为true时，点击遮罩层触发 | -      |

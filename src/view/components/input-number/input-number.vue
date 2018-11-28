@@ -50,7 +50,6 @@ export default {
     handleChangeStep(e, type) {
       const { dataset = {} } = e.currentTarget;
       const { disabled } = dataset;
-      //   let { value } = this.data;
       const step = this.step;
       let value = this.value;
 
@@ -100,8 +99,6 @@ export default {
         value: value
       };
       if (type) data.type = type;
-
-      // this.triggerEvent("change", data);
       this.$emit("change", data);
       this.$emit("input", value);
     }

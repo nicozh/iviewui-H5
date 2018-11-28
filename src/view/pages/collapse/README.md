@@ -120,7 +120,6 @@ export default {
 
 | 属性      | 说明                  | 类型    | 默认值 |
 |-----------|---------------------|---------|--------|
-| i-class   | 自定义 class 类名     | String  | -      |
 | name      | 当前展开的面板的 name | String  | -      |
 | accordion | 是否为手风琴模式      | Boolean | false  |
 
@@ -128,7 +127,6 @@ export default {
 
 | 属性            | 说明              | 类型   | 默认值 |
 |-----------------|-----------------|--------|--------|
-| i-class         | 自定义 class 类名 | String | -      |
 | i-class-title   | 自定义标题类名    | String | -      |
 | i-class-content | 自定义内容类名    | String | -      |
 | name            | 当前面板的标识    | String | -      |

@@ -16,7 +16,7 @@
       <i-input v-model="value2" type="number" title="联系电话" placeholder="请输入手机号" />
       <i-input v-model="value3" type="textarea" autosize title="详细地址" placeholder="请输入详细地址(最多50字)" :maxlength="50" />
       <i-input v-model="value4" title="用户信息" disabled />
-      <i-input v-model="value8" title="只读输入框"></i-input>
+      <i-input v-model="value8" readonly title="只读输入框"></i-input>
     </i-panel>
 
     <i-panel title="无标题输入框">

@@ -89,6 +89,7 @@ let plugins = [
 ]
 
 const install = (Vue) => {
+  if (install.installed) return;
   components.forEach(item => {
     Vue.component(item.name, item)
   });
@@ -98,6 +99,10 @@ const install = (Vue) => {
   Vue.component(GridLabel['name'],GridLabel)
 
 }
+// Vue 是全局变量时，自动 install
+if (typeof window !== 'undefined' && window.Vue) {
+  install(window.Vue);
+};
 export {
   Card,
   Button,

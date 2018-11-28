@@ -1,5 +1,5 @@
 <template>
-  <div :class="[iClass, 'i-collapse']">
+  <div :class="['i-collapse']">
     <slot></slot>
   </div>
 </template>
@@ -7,13 +7,15 @@
 export default {
   name: "i-collapse",
   props: {
-    iClass: String,
     name: String,
-    accordion: Boolean
+    accordion: { type: Boolean, default: false }
+  },
+  data() {
+    return { allList: [] };
   },
   methods: {
     clickfn(name) {
-      const allList = this.$children;
+      const allList = this.allList;
       allList.forEach(item => {
         if (name === item.name) {
           item.data.showContent = "i-collapse-item-show-content";

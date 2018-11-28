@@ -1,5 +1,5 @@
 <template>
-    <div :class="['i-divider', iClass]" :style="getStyle(color,size,height)">
+    <div :class="['i-divider']" :style="getStyle(color,size,height)">
         <div class="i-divider-content" v-if="content !== ''">
             {{content}}
         </div>
@@ -13,7 +13,6 @@
 export default {
   name: "i-divider",
   props: {
-    iClass: String,
     content: {
       type: String,
       default: ""

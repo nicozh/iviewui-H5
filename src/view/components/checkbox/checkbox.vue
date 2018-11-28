@@ -4,7 +4,6 @@
     <i-cell class="i-checkbox-cell">
       <label>
         <i-icon :class="['i-checkbox-radio', positionCls]" :color="changeColor()" :type="checked?'success_fill':'radio_off'" :size="24"></i-icon>
-        <!-- <input type="checkbox" :value="value" :checked="checked" :style="{color:checked?color:''}" :disabled="disabled" :class="['i-checkbox-radio', positionCls]"> -->
         <div class="i-checkbox-title">{{value}}</div>
       </label>
     </i-cell>
