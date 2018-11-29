@@ -19,7 +19,7 @@
                         这里是该步骤的描述信息
                     </div>
                 </i-step>
-                <i-step status="">
+                <i-step status="error">
                     <div slot="title">
                         错误
                     </div>
@@ -121,10 +121,8 @@
     export default {
         data() {
             return {
-                // data: {
-                    current: 2,
-                    verticalCurrent: 2
-                // }
+                current: 2,
+                verticalCurrent: 2
             }
         },
         methods: {

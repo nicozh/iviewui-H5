@@ -1,9 +1,14 @@
 # Steps 步骤条
+
 #### 概述
+
 拆分某项流程的步骤，引导用户按流程完成任务。
+
 #### 使用指南
+
 #### 示例
-```
+
+```html
 <template>
     <div>
         <div class="i-steps-demo">
@@ -25,7 +30,7 @@
                         这里是该步骤的描述信息
                     </div>
                 </i-step>
-                <i-step status="">
+                <i-step status="error">
                     <div slot="title">
                         错误
                     </div>
@@ -127,10 +132,8 @@
     export default {
         data() {
             return {
-                // data: {
-                    current: 2,
-                    verticalCurrent: 2
-                // }
+                current: 2,
+                verticalCurrent: 2
             }
         },
         methods: {
@@ -155,21 +158,29 @@
     }
 </style>
 ```
+
 #### API
+
 ##### Steps props
 
 | 属性      | 说明                                                    | 类型   | 默认值     |
 |-----------|-------------------------------------------------------|--------|------------|
-| i-class   | 自定义 class 类名                                       | String | -          |
 | current   | 当前步骤，从 0 开始计数                                  | Number | -1         |
 | status    | 当前步骤的状态，可选值为 wait、process、finish、error       | String | -          |
 | direction | 步骤条的方向，可选值为 horizontal（水平）或 vertical（垂直） | String | horizontal |
 
 ##### Step props
+
 | 属性    | 说明                                                           | 类型   | 默认值 |
 |---------|--------------------------------------------------------------|--------|--------|
-| i-class | 自定义 class 类名                                              | String | -      |
 | status  | 步骤的状态，可选值为 wait、process、finish、error，不设置时自动判断 | String | -      |
 | title   | 标题                                                           | String | -      |
 | content | 步骤的详细描述，可选                                            | String | -      |
 | icon    | 步骤的图标，可选                                                | String | -      |
+
+##### Step slots
+
+| 名称    | 说明         |
+|---------|------------|
+| title   | 标题，        |
+| content | 步骤详细描述 |

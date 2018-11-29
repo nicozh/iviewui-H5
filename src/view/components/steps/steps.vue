@@ -1,13 +1,12 @@
 <template>
-    <div :class="[iClass, 'i-steps']">
-        <slot></slot>
-    </div>
+  <div :class="['i-steps']">
+    <slot></slot>
+  </div>
 </template>
 <script>
 export default {
   name: "i-steps",
   props: {
-    iClass: String,
     current: {
       type: Number,
       default: -1
@@ -57,5 +56,10 @@ export default {
 
 .i-steps {
   width: 100%;
+  &::after {
+    content: "";
+    display: block;
+    clear: both;
+  }
 }
 </style>

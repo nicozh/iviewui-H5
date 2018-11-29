@@ -1,5 +1,5 @@
 <template>
-  <div :class="[iClass, 'i-step-item', getClass(status,current,index),  direction === 'vertical' ? 'i-step-vertical' : 'i-step-horizontal']" :style="getItemStyle(len,direction)">
+  <div :class="['i-step-item', getClass(status,current,index),  direction === 'vertical' ? 'i-step-vertical' : 'i-step-horizontal']" :style="getItemStyle(len,direction)">
     <div class="i-step-item-ico">
       <div class="i-step-ico" v-if="noIco(status,current,index,icon)">{{ index+1 }}</div>
       <div class="i-step-ico" v-else>
@@ -29,7 +29,6 @@ export default {
   name: "i-step",
   components: { [Icon.name]: Icon },
   props: {
-    iClass: String,
     status: {
       type: String,
       //wait、process、finish、error
@@ -146,6 +145,7 @@ export default {
   }
 
   &-horizontal {
+    float: left;
     .i-step-ico::after {
       position: absolute;
       top: 11px;
@@ -230,7 +230,7 @@ export default {
     box-sizing: border-box;
     padding-left: 10px;
     vertical-align: top;
-    margin-right: -4px; // 去除inline-block之间的间隙
+    // margin-right: -4px; // 去除inline-block之间的间隙
     &-ico {
       width: 100%;
       height: 24px;

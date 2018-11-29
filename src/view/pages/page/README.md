@@ -1,9 +1,14 @@
 # Page 分页
+
 #### 概述
+
 当数据量较多时，使用分页可以快速进行数据切换。
+
 #### 使用指南
+
 #### 示例
-```
+
+```html
 <template>
     <div>
         <i-panel title="带有文字的按钮"></i-panel>
@@ -61,17 +66,27 @@
     }
 </script>
 ```
+
 #### Api
+
+##### Page props
 
 | 属性    | 说明                                | 类型    | 默认值 |
 |---------|-----------------------------------|---------|--------|
-| i-class | 自定义 class 类名                   | String  | -      |
 | mode    | 类型，可选值为 button、number、pointer | String  | button |
 | current | 当前页码                            | Number  | 1      |
 | total   | 总页数                              | Number  | 0      |
 | simple  | 是否隐藏数值                        | Boolean | false  |
 
-#### Events
+##### Page slots
+
+| 名称 | 说明         |
+|------|------------|
+| prew | 页码左侧按钮 |
+| next | 页码右侧按钮 |
+
+##### Page Events
+
 | 事件名 | 说明                             | 返回值 |
 |--------|--------------------------------|--------|
 | change | 切换页码时触发，返回 prev 或 next | type   |

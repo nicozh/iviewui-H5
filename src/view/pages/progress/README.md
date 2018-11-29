@@ -1,8 +1,12 @@
 # Progress 进度条
+
 展示操作或任务的当前进度，比如上传文件。
+
 #### 使用指南
+
 #### 示例
-```
+
+```html
 <template>
     <div>
         <div class="progress-item">
@@ -14,7 +18,6 @@
         </div>
         <div class="progress-item">
             <i-progress :percent="percent" :status="status"></i-progress>
-
         </div>
         <i-button @click="handleAdd" type="ghost">增加</i-button>
         <i-button @click="handleReduce" type="ghost">减少</i-button>
@@ -52,7 +55,10 @@
     }
 </style>
 ```
+
 #### API
+
+##### Progress props
 
 | 属性         | 说明                                      | 类型    | 默认值 |
 |--------------|-----------------------------------------|---------|--------|

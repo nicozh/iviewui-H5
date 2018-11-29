@@ -78,9 +78,9 @@ export default {
 |----------|---------------------|---------|--------|
 | i-class  | 自定义 class 类名     | String  | -      |
 | count    | star 总数             | Number  | 5      |
-| value    | 当前 star 数          | Number  | 0      |
+| v-model  | 当前 star 数          | Number  | 0      |
 | disabled | 是否只读，无法进行交互 | Boolean | false  |
-| size     | 图标大小，单位 px      | String  | 20     |
+| size     | 图标大小，单位 px      | Number  | 20     |
 
 #### Rate events
 

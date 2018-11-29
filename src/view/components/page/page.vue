@@ -1,5 +1,5 @@
 <template>
-  <div :class="[iClass, 'i-page']">
+  <div :class="['i-page']">
     <div class="i-page-prev" v-if="mode === 'button'">
       <i-button i-class="i-page-button" type="ghost" @click="handlePrev" :disabled="current === 1">
         <slot name="prev"></slot>
@@ -42,7 +42,6 @@ export default {
       type: Boolean,
       default: false
     },
-    iClass: String
   },
   methods: {
     handleChange(type) {
@@ -113,9 +112,9 @@ export default {
     }
   }
 
-  &-button {
+  & &-button {
     display: inline-block;
-    margin: 0 !important;
+    margin: 0 ;
   }
 }
 </style>

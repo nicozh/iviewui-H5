@@ -168,7 +168,6 @@ export default {
 
 | 属性    | 说明                                     | 类型    | 默认值  |
 |---------|----------------------------------------|---------|---------|
-| i-class | 自定义 class 类名                        | String  | -       |
 | size    | 大小，可选值为 large、small、default        | String  | default |
 | fix     | 是否固定，需要父级有 relative 或 absolute | Boolean | false   |
 | custom  | 是否自定义加载中的样式                   | Boolean | false   |
