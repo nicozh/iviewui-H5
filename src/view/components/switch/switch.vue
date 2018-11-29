@@ -1,6 +1,5 @@
 <template>
-    <div :class="[iClass, 'i-switch', setSize(size), setCurrent(value,disabled)]" @click="toggle">
-        <!-- <input type="text" :name="name" :value="value" class="i-switch-hide-input"> -->
+    <div :class="['i-switch', setSize(size), setCurrent(value,disabled)]" @click="toggle">
         <div class="i-switch-inner" v-if="value === true">
             <slot name="open"></slot>
         </div>
@@ -13,7 +12,6 @@
 export default {
   name: "i-switch",
   props: {
-    iClass: String,
     value: {
       type: Boolean,
       default: false
@@ -47,6 +45,7 @@ export default {
       if (this.disabled) return;
       const value = this.value ? false : true;
       this.$emit("change", value);
+      this.$emit('input', value)
     },
     setSize(size) {
       let index = this.sizes.indexOf(size);

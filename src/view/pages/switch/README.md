@@ -13,22 +13,22 @@
     <div>
         <i-cell-group>
             <i-cell title="基本用法">
-                <i-switch :value="switch1" @change="onChange" slot="footer"></i-switch>
+                <i-switch v-model="switch1" @change="onChange" slot="footer"></i-switch>
             </i-cell>
             <i-cell title="自定义内容">
-                <i-switch :value="switch1" size="large" @change="onChange" slot="footer">
+                <i-switch v-model="switch1" size="large" @change="onChange" slot="footer">
                     <div slot="open">开启</div>
                     <div slot="close">关闭</div>
                 </i-switch>
             </i-cell>
             <i-cell title="图标">
-                <i-switch :value="switch1" @change="onChange" slot="footer">
+                <i-switch v-model="switch1" @change="onChange" slot="footer">
                     <i-icon type="right" slot="open"></i-icon>
                     <i-icon type="close" slot="close"></i-icon>
                 </i-switch>
             </i-cell>
             <i-cell title="禁止切换">
-                <i-switch :value="switch1" :disabled="true" slot="footer"></i-switch>
+                <i-switch v-model="switch1" :disabled="true" slot="footer"></i-switch>
             </i-cell>
         </i-cell-group>
     </div>
@@ -42,7 +42,6 @@
         },
         methods: {
             onChange(value) {
-                this.switch1 = value
                 console.log(value)
             }
         }
@@ -56,8 +55,7 @@
 
 | 属性     | 说明                                              | 类型    | 默认值  |
 |----------|-------------------------------------------------|---------|---------|
-| i-class  | 自定义 class 类名                                 | String  | -       |
-| value    | 指定当前是否选中                                  | Boolean | false   |
+| v-model    | 指定当前是否选中                                  | Boolean | false   |
 | size     | 开关的尺寸，可选值为 large、small、default 或者不写。 | String  | default |
 | disabled | 是否禁用开关                                      | Boolean | false   |
 
