@@ -1,22 +1,19 @@
 <template>
-  <div>
-    <div v-if="scroll" :class="[iClass, 'i-tabs', 'i-tabs-scroll', fixed ? 'i-tabs-fixed' : '']">
-      <slot></slot>
-    </div>
-    <div v-else :class="[iClass, 'i-tabs', fixed ? 'i-tabs-fixed' : '']">
-      <slot></slot>
-    </div>
+  <div :class="allClass">
+    <slot></slot>
   </div>
 </template>
 <script>
 export default {
   name: "i-tabs",
+  model: {
+    prop: "current",
+    event: "change"
+  },
   props: {
-    iClass: String,
     current: {
-      type: String,
+      type: [String, Number],
       default: ""
-      //   observer: "changeCurrent"
     },
     color: {
       type: String,
@@ -32,23 +29,35 @@ export default {
     }
   },
   data() {
-    return {};
+    return {
+      tabs: []
+    };
+  },
+  computed: {
+    allClass() {
+      let a = [];
+      if (this.scroll) {
+        a = ["i-tabs", "i-tabs-scroll", this.fixed ? "i-tabs-fixed" : ""];
+      } else {
+        a = ["i-tabs", this.fixed ? "i-tabs-fixed" : ""];
+      }
+      return a;
+    }
   },
   methods: {
-    changeCurrent(val = this.current) {
-      let items = this.$children;
+    changeCurrent(val = +this.current) {
+      let items = this.tabs;
       const len = items.length;
-
       if (len > 0) {
         items.forEach(item => {
           item.changeScroll(this.scroll);
-          item.changeCurrent(item.keys === val);
+          item.changeCurrent(item.index === val);
           item.changeCurrentColor(this.color);
         });
       }
     },
-    emitEvent(key) {
-      this.$emit("change", key);
+    emitEvent(index) {
+      this.$emit("change", index);
     }
   },
   watch: {

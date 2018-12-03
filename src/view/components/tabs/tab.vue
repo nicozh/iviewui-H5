@@ -1,5 +1,5 @@
 <template>
-  <div :class="[iClass, 'i-tabs-tab', scroll ? 'i-tabs-tab-scroll' : '', current ? 'i-tabs-tab-current' : '']">
+  <div :class="['i-tabs-tab', scroll ? 'i-tabs-tab-scroll' : '', current ? 'i-tabs-tab-current' : '']">
     <i-badge :dot="dot" :count="dot ? 0 : count">
       <div @click="handleClickItem">
         <div :class="['i-tabs-tab-title', current ? 'i-tabs-tab-title-current' : '']" v-if="current && currentColor" :style="{color:currentColor}">{{ title }}</div>
@@ -15,11 +15,6 @@ export default {
   name: "i-tab",
   components: { [Badge.name]: Badge },
   props: {
-    iClass: String,
-    keys: {
-      type: String,
-      value: ""
-    },
     title: {
       type: String,
       value: ""
@@ -40,6 +35,11 @@ export default {
       scroll: false
     };
   },
+  computed: {
+    index() {
+      return this.$parent.tabs.indexOf(this);
+    },
+  },
   methods: {
     changeCurrent(current) {
       this.current = current;
@@ -52,8 +52,14 @@ export default {
     },
     handleClickItem() {
       const parent = this.$parent;
-      parent.emitEvent(this.keys);
+      parent.emitEvent(this.index);
     }
+  },
+  beforeCreate() {
+    this.$parent.tabs.push(this);
+  },
+  destroyed() {
+    this.$parent.tabs.splice(this.$parent.tabs.indexOf(this), 1);
   }
 };
 </script>
