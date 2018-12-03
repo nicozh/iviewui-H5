@@ -3,7 +3,7 @@
     <div class="i-step-item-ico">
       <div class="i-step-ico" v-if="noIco(status,current,index,icon)">{{ index+1 }}</div>
       <div class="i-step-ico" v-else>
-        <i-icon i-class="i-step-ico-in" :type="getIcoClass(status,icon)"></i-icon>
+        <i-icon class="i-step-ico-in" :type="getIcoClass(status,icon)"></i-icon>
       </div>
       <div class="i-step-line" v-if="index !== len - 1"></div>
     </div>

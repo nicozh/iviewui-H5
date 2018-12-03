@@ -60,14 +60,13 @@ export default {
     onClick(event) {
       this.$parent.onChange(this.$parent.list.indexOf(this));
       this.$emit("click", event);
-      // this.routerLink();
     }
   },
   beforeCreate() {
     this.$parent.list.push(this);
   },
   destroyed() {
-    // this.$parent.list.splice(this.$parent.items.indexOf(this), 1);
+    this.$parent.list.splice(this.$parent.list.indexOf(this), 1);
   }
 };
 </script>
