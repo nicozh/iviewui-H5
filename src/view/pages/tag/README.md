@@ -1,9 +1,14 @@
 # Tag 标签
+
 #### 概述
+
 对不同维度进行简单的标记和分类。
+
 #### 使用指南
+
 #### 示例
-```
+
+```html
 <template>
     <div class="tag-example">
         <div class="one-tag">基本用法</div>
@@ -94,3 +99,21 @@
     }
 </style>
 ```
+
+#### API
+
+##### Tag props
+
+| 属性      | 说明                                                                      | 类型    | 默认值  |
+|-----------|-------------------------------------------------------------------------|---------|---------|
+| checkable | 标签是否可以选择                                                          | Boolean | false   |
+| name      | 当前标签的名称                                                            | String  | -       |
+| checked   | 标签的选中状态                                                            | Boolean | true    |
+| type      | 标签的样式类型，可选值为 border、dot                                        | String  | dot     |
+| color     | 标签颜色，预设颜色值为 blue、green、red、yellow、default，你也可以自定义颜色值。 | String  | default |
+
+##### Tag events
+
+| 事件名 | 说明           | 返回值            |
+|--------|--------------|-------------------|
+| change | 状态改变时触发 | { name, checked } |
