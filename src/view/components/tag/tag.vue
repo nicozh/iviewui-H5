@@ -1,5 +1,5 @@
 <template>
-    <div :class="[iClass, 'i-tag', getClass(color,type,checked,checkable), checkable ? '' : 'i-tag-disable']" @click="tapTag">
+    <div :class="['i-tag', getClass(color,type,checked,checkable), checkable ? '' : 'i-tag-disable']" @click="tapTag">
         <slot></slot>
     </div>
 </template>
@@ -7,7 +7,6 @@
 export default {
   name: "i-tag",
   props: {
-    iClass: String,
     name: {
       type: String,
       default: ""

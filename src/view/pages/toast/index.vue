@@ -59,10 +59,6 @@ export default {
         duration: 0,
         mask: false
       });
-      // setTimeout(() => {
-      //   this.
-      //   $Toast.close();
-      // }, 5000);
     }
   }
 };

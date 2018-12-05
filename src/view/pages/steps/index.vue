@@ -130,7 +130,6 @@
                 const addCurrent = this.current + 1;
                 const current = addCurrent > 2 ? 0 : addCurrent;
                 this.current = current
-                console.log(this.current)
             }
         }
     }

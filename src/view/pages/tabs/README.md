@@ -77,7 +77,7 @@
 
 | 属性    | 说明                   | 类型    | 默认值 |
 |---------|----------------------|---------|--------|
-| v-model | 当前所在的标签的索引值 | String  | -      |
+| v-model | 当前所在的标签的索引值 | Number  | -      |
 | color   | 主题色                 | String  | -      |
 | scroll  | 是否开启横向滚动       | Boolean | false  |
 | fixed   | 是否固定在底部         | Boolean | false  |
