@@ -1,17 +1,17 @@
 <template>
-    <div :class="['i-swipeout-wrap', iClass]">
+    <div :class="['i-swipeout-wrap']">
         <div class="i-swipeout-item" @touchstart="handlerTouchstart" @touchmove="handlerTouchmove" @touchend="handlerTouchend" :style="{transform:`translate(${this.data.position.pageX}px, 0)`}">
             <div class="i-swipeout-content">
                 <slot name="content"></slot>
             </div>
-            <div class="i-swipeout-button-right-group" v-if="actions.length > 0" @touchend.prevent="loop">
-                <div class="i-swipeout-button-right-item" v-for="(item,index) in actions" :style="[setStyle(item),{width:item.width+'px'}]" :key="index" :data-index="index" @click.capture="handlerButton(index)">
+            <div class="i-swipeout-button-right-group" v-if="actions.length > 0" @touchend.stop="loop">
+                <div class="i-swipeout-button-right-item" v-for="(item,index) in actions" :style="[setStyle(item),{width:item.width+'px'}]" :key="index" :data-index="index" @click="handlerButton(index)">
                     <i-icon v-if="item.icon" :type="item.icon" :size="item.fontsize" :color="item.color">
                     </i-icon>
                     {{item.name}}
                 </div>
             </div>
-            <div class="i-swipeout-button-right-group" @touchend.prevent="loop" @click.capture="handlerParentButton" v-if="actions.length === 0" :style="{width:`${operateWidth}`+'px',right:'-'+`${operateWidth}`+'px'}">
+            <div class="i-swipeout-button-right-group" @touchend.stop="loop" @click="handlerParentButton" v-if="actions.length === 0" :style="{width:`${operateWidth}`+'px',right:'-'+`${operateWidth}`+'px'}">
                 <slot name="button"></slot>
             </div>
         </div>
@@ -23,7 +23,6 @@ export default {
   name: "i-swipeout",
   components: { [Icon.name]: Icon },
   props: {
-    iClass: String,
     actions: {
       default: function() {
         return [];
@@ -69,9 +68,6 @@ export default {
     }
   },
   methods: {
-    ceshi() {
-      console.log(this.data.position.pageX);
-    },
     swipeDirection(x1, x2, y1, y2) {
       return Math.abs(x1 - x2) >= Math.abs(y1 - y2)
         ? x1 - x2 > 0
@@ -89,7 +85,6 @@ export default {
       };
     },
     setPosition: function(position) {
-      console.log(position);
       return "transform:translate(" + position.pageX + "px,0);";
     },
     loop() {},
@@ -106,7 +101,6 @@ export default {
       }
     },
     handlerTouchstart(event) {
-      console.log("start");
       const touches = event.touches ? event.touches[0] : {};
       const tStart = this.data.tStart;
       if (touches) {
@@ -130,7 +124,6 @@ export default {
       this.data.position = spacing;
     },
     handlerTouchmove(event) {
-      console.log("move");
       const start = this.data.tStart;
       const touches = event.touches ? event.touches[0] : {};
       if (touches) {
@@ -146,7 +139,6 @@ export default {
       }
     },
     handlerTouchend(event) {
-      console.log("end");
       const start = this.data.tStart;
       const touches = event.changedTouches ? event.changedTouches[0] : {};
       if (touches) {
@@ -176,7 +168,7 @@ export default {
       this.$emit("change", event);
     },
     closeButtonGroup() {
-      this.position = {
+      this.data.position = {
         pageX: 0,
         pageY: 0
       };
@@ -186,7 +178,7 @@ export default {
       if (!this.unclosable) {
         this.closeButtonGroup();
       }
-    }
+    },
   },
   created() {
     this._updateButtonSize();

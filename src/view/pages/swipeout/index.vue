@@ -5,21 +5,21 @@
             注: 1、设置uncloseable为true时点击按钮不能关闭,必须联合toggle2来实现
             2、如果传递action的话必须传递width来设置每个按钮的宽度
         </div>
-        <i-swipeout i-class="i-swipeout-demo-item" :actions="actions">
+        <i-swipeout class="i-swipeout-demo-item" :actions="actions">
             <div slot="content">
-                <i-cell i-class="i-cell-padding" title="猛虫过江" label="侏罗纪世界主题公园及豪华度假村被失控的恐龙们摧毁已有四年">
+                <i-cell class="i-cell-padding" title="猛虫过江" label="侏罗纪世界主题公园及豪华度假村被失控的恐龙们摧毁已有四年">
                 </i-cell>
             </div>
         </i-swipeout>
-        <i-swipeout i-class="i-swipeout-demo-item" :actions="actions" :toggle="toggle2" :unclosable="true">
+        <i-swipeout class="i-swipeout-demo-item" :actions="actions" :toggle="toggle2" unclosable>
             <div slot="content">
-                <i-cell i-class="i-cell-padding" title="点击按钮不可关闭" label="侏罗纪世界主题公园及豪华度假村被失控的恐龙们摧毁已有四年">
+                <i-cell class="i-cell-padding" title="点击按钮不可关闭" label="侏罗纪世界主题公园及豪华度假村被失控的恐龙们摧毁已有四年">
                 </i-cell>
             </div>
         </i-swipeout>
-        <i-swipeout i-class="i-swipeout-demo-item" :actions="actions" :toggle="toggle2" :unclosable="true" @change="handlerCloseButton">
+        <i-swipeout class="i-swipeout-demo-item" :actions="actions" :toggle="toggle2" unclosable @change="handlerCloseButton">
             <div slot="content">
-                <i-cell i-class="i-cell-padding" title="111可点击按钮关闭" label="侏罗纪世界主题公园及豪华度假村被失控的恐龙们摧毁已有四年">
+                <i-cell class="i-cell-padding" title="可点击按钮关闭" label="侏罗纪世界主题公园及豪华度假村被失控的恐龙们摧毁已有四年">
                 </i-cell>
             </div>
         </i-swipeout>
@@ -27,9 +27,9 @@
 
         <div class="i-swipeout-demo-title">自定义右侧Button</div>
         <div class="i-swipeout-demo-des">注: 右侧必须设置固定宽度。默认宽度160px</div>
-        <i-swipeout i-class="i-swipeout-demo-item" :operateWidth="210">
+        <i-swipeout class="i-swipeout-demo-item" :operateWidth="210">
             <div slot="content">
-                <i-cell i-class="i-cell-padding" title="猛虫过江" label="侏罗纪世界主题公园及豪华度假村被失控的恐龙们摧毁已有四年">
+                <i-cell class="i-cell-padding" title="猛虫过江" label="侏罗纪世界主题公园及豪华度假村被失控的恐龙们摧毁已有四年">
                 </i-cell>
             </div>
             <div slot="button" class="i-swipeout-demo-button-group">
@@ -38,9 +38,9 @@
                 <div class="i-swipeout-demo-button">删除</div>
             </div>
         </i-swipeout>
-        <i-swipeout i-class="i-swipeout-demo-item" :operateWidth="180">
+        <i-swipeout class="i-swipeout-demo-item" :operateWidth="180">
             <div slot="content">
-                <i-cell i-class="i-cell-padding" title="猛虫过江" label="侏罗纪世界主题公园及豪华度假村被失控的恐龙们摧毁已有四年">
+                <i-cell class="i-cell-padding" title="猛虫过江" label="侏罗纪世界主题公园及豪华度假村被失控的恐龙们摧毁已有四年">
                 </i-cell>
             </div>
             <div slot="button" class="i-swipeout-demo-button-group" style="background:#2db7f5;">
@@ -65,7 +65,7 @@
                 <p>删除后无法恢复哦</p>
             </div>
         </i-action-sheet>
-        <i-swipeout i-class="i-swipeout-demo-item" :operateWidth="180" :unclosable="true" :toggle="toggle">
+        <i-swipeout class="i-swipeout-demo-item" :operateWidth="180" :unclosable="true" :toggle="toggle">
             <div slot="content">
                 <div class="i-swipeout-image">
                     <i-icon :size="20" color="#FFFFFF" type="feedback_fill"></i-icon>
@@ -89,7 +89,7 @@
         </i-swipeout>
 
         <div class="i-swipeout-demo-title">自定义样式</div>
-        <i-swipeout i-class="i-swipeout-demo-item" :actions="actions">
+        <i-swipeout class="i-swipeout-demo-item" :actions="actions">
             <div slot="content">
                 <div class="i-swipeout-image" style="background:#ff9900;">
                     <i-icon :size="20" color="#FFFFFF" type="coupons_fill" />
@@ -151,7 +151,6 @@
                 }, 2000);
             },
             handlerCloseButton(index) {
-                console.log(111111)
                 console.log(index)
                 this.toggle2 = this.toggle2 ? false : true
             },
